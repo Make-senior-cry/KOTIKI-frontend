@@ -7,6 +7,7 @@ export default class Post {
     banned,
     likesCount,
     reportsCount,
+    author,
   }) {
     this.id = id;
     this.text = text;
@@ -15,5 +16,6 @@ export default class Post {
     this.banned = banned;
     this.likesCount = likesCount;
     this.reportsCount = reportsCount;
+    this.author = author;
   }
 }
