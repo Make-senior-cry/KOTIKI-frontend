@@ -2,6 +2,7 @@ import { makeAutoObservable } from "mobx";
 import signIn from "../api/signIn";
 import signUp from "../api/signUp";
 import signOut from "../api/signOut";
+import getUser from "../api/getUser";
 import User from "../entities/user";
 
 class UserStore {
@@ -10,6 +11,7 @@ class UserStore {
 
   constructor() {
     makeAutoObservable(this);
+    this.fetchUserData();
   }
 
   signIn(email, password) {
@@ -32,6 +34,15 @@ class UserStore {
 
   signOut() {
     signOut()
+      .then(() => {
+        this.user = null;
+        this.error = null;
+      })
+      .catch((error) => (this.error = error));
+  }
+
+  fetchUserData() {
+    getUser()
       .then(() => {
         this.user = null;
         this.error = null;
