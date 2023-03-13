@@ -22,3 +22,9 @@
 ```jsx
 const Button = ({ children, onClick }) => (<button onClick={onClick}>{children}</button>);
 ```
+
+#### Как писать UI-компонент на реакте, если я не знаю реакта?
+
+Сначала можно написать компонент в виде html-шаблона и добавить как файл <component-name>.html в папку src/showcase в репозиторий, этого достаточно для создания PR.
+
+После можно почитать [этот гайд](https://www.freecodecamp.org/news/react-tutorial-build-a-project/) до заголовка "How to Manage State in React with the useState Hook" и переписать шаблон в виде react-компонента
