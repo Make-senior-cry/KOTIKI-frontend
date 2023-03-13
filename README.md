@@ -21,6 +21,7 @@
 #### Пример кода UI-компонента кнопки
 
 ```jsx
+// src/ui/Button.jsx
 const Button = ({ children, onClick }) => (<button onClick={onClick}>{children}</button>);
 
 export default Button;
