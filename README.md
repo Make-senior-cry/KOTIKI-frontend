@@ -22,6 +22,8 @@
 
 ```jsx
 const Button = ({ children, onClick }) => (<button onClick={onClick}>{children}</button>);
+
+export default Button;
 ```
 
 #### Как писать UI-компонент на реакте, если я не знаю реакта?
