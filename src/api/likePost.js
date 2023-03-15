@@ -1,6 +1,5 @@
-import httpClient from "./httpClient";
+import httpClient from './httpClient';
 
-const likePost = (postId) =>
-  httpClient.post("/like-post", { postId }).then((response) => response.data);
+const likePost = (postId) => httpClient.post('/like-post', { postId }).then((response) => response.data);
 
 export default likePost;
