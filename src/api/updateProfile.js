@@ -1,19 +1,19 @@
-import httpClient from "./httpClient";
-import User from "../entities/user";
+import httpClient from './httpClient';
+import User from '../entities/user';
 
 const updateProfile = (name, description, imageFile = null) => {
   const formData = new FormData();
-  formData.append("name", name);
-  formData.append("description", description);
+  formData.append('name', name);
+  formData.append('description', description);
 
   if (imageFile) {
-    formData.append("imageFile", imageFile);
+    formData.append('imageFile', imageFile);
   }
 
   return httpClient
-    .put("/update-profile", formData, {
+    .put('/update-profile', formData, {
       headers: {
-        "Content-Type": "multipart/form-data",
+        'Content-Type': 'multipart/form-data',
       },
     })
     .then((response) => new User(response.data));
