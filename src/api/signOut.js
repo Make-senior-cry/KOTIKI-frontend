@@ -1,5 +1,5 @@
-import httpClient from "./httpClient";
+import httpClient from './httpClient';
 
-const signOut = () => httpClient.post("/auth/sign-out");
+const signOut = () => httpClient.post('/auth/sign-out');
 
 export default signOut;

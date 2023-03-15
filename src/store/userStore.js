@@ -1,12 +1,13 @@
-import { makeAutoObservable } from "mobx";
-import signIn from "../api/signIn";
-import signUp from "../api/signUp";
-import signOut from "../api/signOut";
-import getUser from "../api/getUser";
-import User from "../entities/user";
+import { makeAutoObservable } from 'mobx';
+import signIn from '../api/signIn';
+import signUp from '../api/signUp';
+import signOut from '../api/signOut';
+import getUser from '../api/getUser';
+import User from '../entities/user';
 
 class UserStore {
   user = null;
+
   error = null;
 
   constructor() {
@@ -20,7 +21,9 @@ class UserStore {
         this.user = user;
         this.error = null;
       })
-      .catch((error) => (this.error = error));
+      .catch((error) => {
+        this.error = error;
+      });
   }
 
   signUp(email, password, name) {
@@ -29,7 +32,9 @@ class UserStore {
         this.user = user;
         this.error = null;
       })
-      .catch((error) => (this.error = error));
+      .catch((error) => {
+        this.error = error;
+      });
   }
 
   signOut() {
@@ -38,7 +43,9 @@ class UserStore {
         this.user = null;
         this.error = null;
       })
-      .catch((error) => (this.error = error));
+      .catch((error) => {
+        this.error = error;
+      });
   }
 
   fetchUserData() {
@@ -47,7 +54,9 @@ class UserStore {
         this.user = null;
         this.error = null;
       })
-      .catch((error) => (this.error = error));
+      .catch((error) => {
+        this.error = error;
+      });
   }
 
   get isAuthorized() {
