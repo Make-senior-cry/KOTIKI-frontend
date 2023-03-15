@@ -17,5 +17,7 @@
         "react"
     ],
     "rules": {
+        "no-shadow": ["off"],
+        "import/no-extraneous-dependencies": ["off"]
     }
 }
