@@ -1,3 +1,5 @@
-const Button = (props) => (<button onClick={props.onClick} type="button" className={`btn btn-${props.variant ? props.variant : 'primary'}`}>{props.children}</button>);
+function Button({ onClick, variant = 'primary', children }) {
+  return <button onClick={onClick} type="button" className={`btn btn-${variant}`}>{children}</button>;
+}
 
 export default Button;
