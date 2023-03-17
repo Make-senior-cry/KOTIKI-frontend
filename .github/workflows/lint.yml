@@ -11,4 +11,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Lint
-        run: npm run lint
+        run: node_modules/.bin/eslint .
