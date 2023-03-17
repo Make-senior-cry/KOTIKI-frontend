@@ -26,6 +26,7 @@ function App() {
           element={(
             <Protect guestOnly redirectTo="/profile">
               <Avatar size="big" />
+              <Avatar size="small" />
               <Button variant="secondary">Button</Button>
               <Link href="https://github.com/Make-senior-cry/KOTIKI-frontend" disableUnderline>Cats</Link>
             </Protect>
