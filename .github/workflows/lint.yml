@@ -1,15 +1,16 @@
 name: Lint
 on:
-  # pull_request:
-  #   branches:
-  #     - '!main'
+  pull_request:
+    types: [opened, synchronize]
+    branches:
+      - main
   workflow_dispatch:
 jobs:
   eslint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3.4.0
       - name: Get npm cache directory
         id: npm-cache-dir
         shell: bash
