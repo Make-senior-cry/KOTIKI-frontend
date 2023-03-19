@@ -3,7 +3,7 @@ import Protect from './components/Protect';
 import Button from './ui/Button';
 import Link from './ui/Link';
 import Avatar from './ui/Avatar/Avatar';
-import ProfileShapka from './ui/ProfileShapka';
+import ProfileHeader from './ui/ProfileHeader';
 
 function App() {
   return (
@@ -26,7 +26,20 @@ function App() {
           path="/sign-in"
           element={(
             <Protect guestOnly redirectTo="/profile">
-              <ProfileShapka showFollowButton />
+              <ProfileHeader
+                user={{
+                  id: 1,
+                  name: 'Stupid Bastard',
+                  imageURL: 'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80',
+                  description: 'bla bla bla',
+                  email: 'user@mail.ru',
+                  role: 'user',
+                  followersCount: 10,
+                  followingCount: 56,
+                  postsCount: 32,
+                }}
+                showFollowButton
+              />
               <Avatar size="big" />
               <Avatar size="small" />
               <Button variant="secondary">Button</Button>
