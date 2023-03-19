@@ -7,7 +7,7 @@ export default function ProfileHeader({ user, showFollowButton, onClickFollow })
   }
   return (
     <div className="container-lg p-2">
-      <div className="row justify-content-md-center row-cols-3">
+      <div className="row justify-content-md-center align-items-center row-cols-3">
         <div className="col-auto">
           <Avatar size="big" src={user.imageURL} />
         </div>
