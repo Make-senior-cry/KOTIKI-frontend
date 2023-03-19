@@ -30,8 +30,11 @@ function App() {
               <Avatar size="small" />
               <Button variant="secondary">Button</Button>
               <Link href="https://github.com/Make-senior-cry/KOTIKI-frontend" disableUnderline>Cats</Link>
-              <Input label="Email" type="email" placeholder="dasd" />
-              <Input label="Description" type="text" placeholder="desc" textarea />
+              <form>
+                <Input label="Email" type="email" placeholder="dasd" />
+                <Input label="Description" type="text" placeholder="desc" textarea />
+                <Button>Submit</Button>
+              </form>
             </Protect>
           )}
         />
