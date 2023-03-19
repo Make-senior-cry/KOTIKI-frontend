@@ -19,11 +19,19 @@ function App() {
     postsCount: 32,
   });
 
+  const currentDate = new Date();
+  const d = [
+    `0${currentDate.getDate()}`,
+    `0${currentDate.getMonth() + 1}`,
+    `${currentDate.getFullYear()}`,
+    `0${currentDate.getHours()}`,
+    `0${currentDate.getMinutes()}`,
+  ].map((component) => component.slice(-2));
   const postExample = ({
     id: 1,
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     imageURL: 'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80',
-    createdAt: Date.now(),
+    createdAt: `${d.slice(3).join(':')} ${d.slice(0, 3).join('.')}`,
     banned: false,
     likesCount: 2,
     reportsCount: 0,
