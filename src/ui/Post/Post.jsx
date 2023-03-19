@@ -1,7 +1,7 @@
 import styles from './Post.module.css';
 import Avatar from '../Avatar/Avatar';
 
-function Post({ post }) {
+function Post({ post, handleLike }) {
   if (post.banned) {
     return (
       <div>
@@ -25,7 +25,7 @@ function Post({ post }) {
           : null
       }
       <div className="card-footer">
-        <img src="../../../public/paw.png" alt="like" className={`${styles.paw}`} />
+        <img src="../../../public/paw.png" alt="like" className={`${styles.paw}`} onClick={handleLike} />
         { ` ${post.likesCount}` }
       </div>
     </div>
