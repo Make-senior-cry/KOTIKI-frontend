@@ -1,4 +1,3 @@
-import cn from 'classnames';
 import styles from './Post.module.css';
 import Avatar from '../Avatar/Avatar';
 
@@ -11,19 +10,23 @@ function Post({ post }) {
     );
   }
   return (
-    <div className={cn('card')`${styles.post}`}>
-      <div className={cn('card-body')}>
-        <div className={cn('card-title')}>
+    <div className={`${styles.post} card`}>
+      <div className="card-body">
+        <div className="card-title d-flex justify-content-between align-items-center">
           <Avatar src={post.author.imageURL} size="small" />
           <span>{ post.author.name }</span>
           <span>{ post.createdAt }</span>
         </div>
-        <p className={cn('card-text')}>{ post.text }</p>
+        <p className="card-text">{ post.text }</p>
       </div>
-      <img src={post.imageURL} className={cn('card-img-bottom')} alt="Post image" />
-      <div className={cn('card-footer')}>
+      {
+        post.imageURL
+          ? <img src={post.imageURL} className="card-img-bottom" alt="Post image" />
+          : null
+      }
+      <div className="card-footer">
         <img src="../../../public/paw.png" alt="like" className={`${styles.paw}`} />
-        {post.likesCount}
+        { post.likesCount }
       </div>
     </div>
   );
