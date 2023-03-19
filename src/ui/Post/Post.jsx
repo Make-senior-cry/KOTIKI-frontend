@@ -26,7 +26,7 @@ function Post({ post }) {
       }
       <div className="card-footer">
         <img src="../../../public/paw.png" alt="like" className={`${styles.paw}`} />
-        { post.likesCount }
+        { ` ${post.likesCount}` }
       </div>
     </div>
   );
