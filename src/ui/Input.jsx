@@ -1,48 +1,50 @@
-import cn from 'classnames';
-import { useState } from 'react';
+import { useId } from 'react';
 
 function Input(
   {
-    label = '', textarea = false, placeholder, type = 'text', required = false,
+    label = '', textarea = false, value, onChange, ...attributes
   },
 ) {
-  const [value, setValue] = useState('');
+  const id = useId();
 
   const inp = (
     textarea
       ? (
         <textarea
           value={value}
-          placeholder={placeholder}
-          onChange={(event) => setValue(event.target.value)}
-          className={cn('form-control')}
-          required={required}
+          placeholder={attributes.placeholder}
+          onChange={(event) => onChange(event.target.value)}
+          className="form-control"
+          required={attributes.required}
+          id={id}
         />
       )
       : (
         <input
-          type={type}
+          type={attributes.type}
           value={value}
-          placeholder={placeholder}
-          className={cn('form-control')}
-          onChange={(event) => setValue(event.target.value)}
-          required={required}
+          placeholder={attributes.placeholder}
+          className="form-control"
+          onChange={(event) => onChange(event.target.value)}
+          required={attributes.required}
+          id={id}
         />
       )
   );
 
-  if (label) {
-    return (
-      <div>
-        <label className="form-label">
-          { label }
-          { inp }
-        </label>
-      </div>
-    );
-  }
   return (
     <div>
+      {
+        label
+          ? (
+            <label className="form-label" htmlFor={id}>
+              {' '}
+              { label }
+              {' '}
+            </label>
+          )
+          : null
+      }
       { inp }
     </div>
   );
