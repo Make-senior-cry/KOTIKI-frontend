@@ -67,6 +67,10 @@ function App() {
               <Button variant="secondary">Button</Button>
               <Link href="https://github.com/Make-senior-cry/KOTIKI-frontend" disableUnderline>Cats</Link>
               <Post post={postExample} />
+              <Post post={{
+                banned: true,
+              }}
+              />
             </Protect>
 )}
         />
