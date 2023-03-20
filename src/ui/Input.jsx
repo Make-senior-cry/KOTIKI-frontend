@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 function Input(
   {
-    label = '', textarea = false, placeholder, type = 'text',
+    label = '', textarea = false, placeholder, type = 'text', required = false,
   },
 ) {
   const [value, setValue] = useState('');
@@ -16,6 +16,7 @@ function Input(
           placeholder={placeholder}
           onChange={(event) => setValue(event.target.value)}
           className={cn('form-control')}
+          required={required}
         />
       )
       : (
@@ -25,6 +26,7 @@ function Input(
           placeholder={placeholder}
           className={cn('form-control')}
           onChange={(event) => setValue(event.target.value)}
+          required={required}
         />
       )
   );
