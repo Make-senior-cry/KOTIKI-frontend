@@ -63,6 +63,10 @@ npm run build:doc
 ```bash
 npm run lint
 ```
+7. Запуск собранных артефактов на локальной машине
+```bash
+npm run preview
+```
 
 ### CI-CD
 В проекте настроен CI-CD с помощью github actions, файлы настройки расположены в .guthub/workflows
