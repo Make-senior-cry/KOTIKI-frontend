@@ -2,6 +2,7 @@ import { useId } from 'react';
 import styles from './Post.module.css';
 import BannedPost from '../BannedPost';
 import PostTitle from '../PostTitle';
+import PostImage from './PostImage';
 
 function Post({ post, onLike, onReport }) {
   const dropdownMenuId = useId();
@@ -18,11 +19,7 @@ function Post({ post, onLike, onReport }) {
           createdAt={post.formattedDate}
         />
         <p className="card-text">{ post.text }</p>
-        {
-          post.imageURL
-            ? <img src={post.imageURL} className="card-img" alt="Post image" />
-            : null
-        }
+        <PostImage imageUrl={post.imageURL} />
       </div>
       <div className="card-footer">
         <img src="../../../public/paw.png" alt="like" className={`me-2 ${styles.paw}`} onClick={onLike} />
