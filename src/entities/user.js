@@ -8,6 +8,7 @@ export default class User {
     role,
     followersCount,
     followingCount,
+    postsCount,
   }) {
     this.id = id;
     this.name = name;
@@ -17,5 +18,6 @@ export default class User {
     this.role = role;
     this.followersCount = followersCount;
     this.followingCount = followingCount;
+    this.postsCount = postsCount;
   }
 }
