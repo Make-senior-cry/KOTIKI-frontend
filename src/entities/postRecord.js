@@ -1,4 +1,4 @@
-export default class Post {
+export default class PostRecord {
   constructor({
     id,
     text,
