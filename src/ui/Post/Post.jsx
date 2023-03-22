@@ -1,12 +1,10 @@
-import { useId } from 'react';
 import styles from './Post.module.css';
 import BannedPost from '../BannedPost';
 import PostTitle from '../PostTitle';
 import PostImage from './PostImage';
+import PostFooter from './PostFooter';
 
 function Post({ post, onLike, onReport }) {
-  const dropdownMenuId = useId();
-
   if (post.banned) {
     return <BannedPost />;
   }
@@ -21,27 +19,7 @@ function Post({ post, onLike, onReport }) {
         <p className="card-text">{ post.text }</p>
         <PostImage imageUrl={post.imageURL} />
       </div>
-      <div className="card-footer">
-        <img src="../../../public/paw.png" alt="like" className={`me-2 ${styles.paw}`} onClick={onLike} />
-        { post.likesCount }
-        <div className="dropdown float-end">
-          <button
-            className="btn dropdown-toggle"
-            type="button"
-            id={dropdownMenuId}
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <img src="public/three-dots-vertical.svg" alt="" />
-          </button>
-          <ul className="dropdown-menu" aria-labelledby={dropdownMenuId}>
-            <li>
-              <button className="dropdown-item" type="button" onClick={onReport}>Пожаловаться</button>
-            </li>
-          </ul>
-        </div>
-
-      </div>
+      <PostFooter likesCount={post.likesCount} onLike={onLike} onReport={onReport} />
     </div>
   );
 }
