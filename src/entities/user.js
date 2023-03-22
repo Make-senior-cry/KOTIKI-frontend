@@ -20,4 +20,8 @@ export default class User {
     this.followingCount = followingCount;
     this.postsCount = postsCount;
   }
+
+  get link() {
+    return `/user/${this.id}`;
+  }
 }
