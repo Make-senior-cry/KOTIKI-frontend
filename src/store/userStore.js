@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx';
+import { makeAutoObservable, runInAction } from 'mobx';
 import signIn from '../api/signIn';
 import signUp from '../api/signUp';
 import signOut from '../api/signOut';
@@ -8,55 +8,30 @@ import User from '../entities/user';
 class UserStore {
   user = null;
 
-  error = null;
-
   constructor() {
     makeAutoObservable(this);
     this.fetchUserData();
   }
 
   signIn(email, password) {
-    signIn(email, password)
-      .then((user) => {
-        this.user = user;
-        this.error = null;
-      })
-      .catch((error) => {
-        this.error = error;
-      });
+    return signIn(email, password)
+      .then((user) => runInAction(() => { this.user = user; }));
   }
 
   signUp(name, email, password) {
-    signUp(name, email, password)
-      .then((user) => {
-        this.user = user;
-        this.error = null;
-      })
-      .catch((error) => {
-        this.error = error;
-      });
+    return signUp(name, email, password)
+      .then((user) => runInAction(() => { this.user = user; }));
   }
 
   signOut() {
-    signOut()
-      .then(() => {
-        this.user = null;
-        this.error = null;
-      })
-      .catch((error) => {
-        this.error = error;
-      });
+    return signOut()
+      .then((user) => runInAction(() => { this.user = user; }));
   }
 
   fetchUserData() {
-    getUser()
-      .then(() => {
-        this.user = null;
-        this.error = null;
-      })
-      .catch((error) => {
-        this.error = error;
-      });
+    return getUser()
+      .then((user) => runInAction(() => { this.user = user; }))
+      .catch((error) => console.error(error));
   }
 
   get isAuthorized() {
