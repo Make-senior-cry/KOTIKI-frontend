@@ -1,15 +1,12 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
 import Protect from './components/Protect';
 import Button from './ui/Button';
 import Link from './ui/Link';
 import Avatar from './ui/Avatar/Avatar';
-import Input from './ui/Input';
 import ProfileHeader from './ui/ProfileHeader';
+import RegistrationForm from './ui/RegistrationForm';
 
 function App() {
-  const [value, setValue] = useState('');
-
   return (
     <BrowserRouter>
       <Routes>
@@ -48,11 +45,7 @@ function App() {
               <Avatar size="small" />
               <Button variant="secondary">Button</Button>
               <Link href="https://github.com/Make-senior-cry/KOTIKI-frontend" disableUnderline>Cats</Link>
-              <form>
-                <Input label="Email" type="email" placeholder="email" value={value} onChange={(e) => setValue(e.target.value)} />
-                <Input label="Description" type="text" placeholder="desc" value={value} onChange={(e) => setValue(e.target.value)} textarea />
-                <Button>Submit</Button>
-              </form>
+              <RegistrationForm onCreateAccount={() => alert('AAAA')} />
             </Protect>
           )}
         />
