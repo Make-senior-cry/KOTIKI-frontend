@@ -12,22 +12,22 @@ export default function ProfileHeader({ user, showFollowButton, onClickFollow })
           <Avatar size="big" src={user.imageURL} />
         </div>
         <div className="col-2 align-content-cent">
-          <div className="text-primary fw-bold">{user.name}</div>
-          <div className="text-primary">{user.description}</div>
+          <div className="fw-bold">{user.name}</div>
+          <div>{user.description}</div>
         </div>
         <div className="col-4">
           <div className="row row-cols-3 pb-3">
             <div className="col-sm-auto">
-              <div className="text-primary fw-bold">{user.followersCount}</div>
-              <div className="text-primary text-uppercase">Подписчиков</div>
+              <div className="fw-bold">{user.followersCount}</div>
+              <div className="text-uppercase">Подписчики</div>
             </div>
             <div className="col-sm-auto">
-              <div className="text-primary fw-bold">{user.followingCount}</div>
-              <div className="text-primary text-uppercase">Подписок</div>
+              <div className="fw-bold">{user.followingCount}</div>
+              <div className="text-uppercase">Подписки</div>
             </div>
             <div className="col-sm-auto">
-              <div className="text-primary fw-bold">{user.postsCount}</div>
-              <div className="text-primary text-uppercase">Постов</div>
+              <div className="fw-bold">{user.postsCount}</div>
+              <div className="text-uppercase">Посты</div>
             </div>
           </div>
           <div className={`row-sm-4 ${showFollowButton ? '' : 'd-none'}`}>
