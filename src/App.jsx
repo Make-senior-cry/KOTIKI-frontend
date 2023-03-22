@@ -4,7 +4,7 @@ import Button from './ui/Button';
 import Link from './ui/Link';
 import Avatar from './ui/Avatar/Avatar';
 import ProfileHeader from './ui/ProfileHeader';
-import UserItem from './ui/UserItem';
+import RegistrationForm from './ui/RegistrationForm';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
               Profile page
               <Route path="/edit">Update profile page</Route>
             </Protect>
-)}
+          )}
         />
         <Route path="/search-people" element={<Protect>Search people page</Protect>} />
         <Route path="/create-post" element={<Protect>Create post page</Protect>} />
@@ -58,12 +58,20 @@ function App() {
                   postsCount: 32,
                 }}
               />
+              <RegistrationForm onCreateAccount={() => alert('AAAA')} />
             </Protect>
-)}
+          )}
         />
         <Route path="/sign-up" element={<Protect guestOnly redirectTo="/profile">SignUp page</Protect>} />
         {/* Main page */}
-        <Route path="/" element={<Protect>Feed page</Protect>} />
+        <Route
+          path="/"
+          element={(
+            <Protect>
+              Feed page
+            </Protect>
+          )}
+        />
       </Routes>
     </BrowserRouter>
   );

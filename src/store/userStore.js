@@ -26,8 +26,8 @@ class UserStore {
       });
   }
 
-  signUp(email, password, name) {
-    signUp(email, password, name)
+  signUp(name, email, password) {
+    signUp(name, email, password)
       .then((user) => {
         this.user = user;
         this.error = null;
