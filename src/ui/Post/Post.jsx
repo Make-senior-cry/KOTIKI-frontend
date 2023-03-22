@@ -1,20 +1,13 @@
 import { useId } from 'react';
 import styles from './Post.module.css';
 import Avatar from '../Avatar/Avatar';
+import BannedPost from '../BannedPost';
 
 function Post({ post, onLike, onReport }) {
   const dropdownMenuId = useId();
 
   if (post.banned) {
-    return (
-      <div className={`${styles.post} card`}>
-        <div className="card-body card-text text-center">
-          <strong>
-            Post is banned!
-          </strong>
-        </div>
-      </div>
-    );
+    return <BannedPost />;
   }
   return (
     <div className={`${styles.post} card`}>
