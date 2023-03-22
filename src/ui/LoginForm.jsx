@@ -13,9 +13,9 @@ export default function LoginForm({ onLoginAccount, onLoginWithGoogle }) {
   }
 
   return (
-    <form onSubmit={handleCreateAccount} className="d-flex gy-5 flex-column gap-3 align-items-center">
+    <form onSubmit={handleCreateAccount} className="d-flex flex-column gap-3 align-items-center">
       <h1>Войти</h1>
-      <fieldset className="d-flex gy-4 flex-column gap-2 w-100">
+      <fieldset className="d-flex flex-column gap-2 w-100">
         <Input placeholder="Email" autocomplete="on" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} />
         <Input placeholder="Пароль" autocomplete="on" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
       </fieldset>
