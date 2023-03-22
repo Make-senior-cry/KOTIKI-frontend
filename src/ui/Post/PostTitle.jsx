@@ -1,4 +1,4 @@
-import Avatar from './Avatar/Avatar';
+import Avatar from '../Avatar/Avatar';
 
 function PostTitle({ avatar, authorName, createdAt }) {
   return (

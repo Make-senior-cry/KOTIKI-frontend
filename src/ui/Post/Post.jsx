@@ -1,6 +1,6 @@
 import styles from './Post.module.css';
 import BannedPost from '../BannedPost';
-import PostTitle from '../PostTitle';
+import PostTitle from './PostTitle';
 import PostImage from './PostImage';
 import PostFooter from './PostFooter';
 
