@@ -4,7 +4,7 @@ import Button from './ui/Button';
 import Link from './ui/Link';
 import Avatar from './ui/Avatar/Avatar';
 import ProfileHeader from './ui/ProfileHeader';
-import RegistrationForm from './ui/RegistrationForm';
+import RegistrationForm from './components/RegistrationForm';
 
 function App() {
   return (
