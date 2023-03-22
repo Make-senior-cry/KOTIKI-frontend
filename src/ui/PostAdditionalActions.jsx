@@ -12,7 +12,7 @@ function PostAdditionalActions({ onReport }) {
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
-        <img src="public/three-dots-vertical.svg" alt="" />
+        <img src="three-dots-vertical.svg" alt="" />
       </button>
       <ul className="dropdown-menu" aria-labelledby={dropdownMenuId}>
         <li>
