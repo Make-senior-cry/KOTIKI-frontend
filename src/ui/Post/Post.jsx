@@ -22,7 +22,7 @@ function Post({ post, onLike, onReport }) {
         <div className="card-title d-flex justify-content-between align-items-center">
           <Avatar src={post.author.imageURL} size="small" />
           <span>{ post.author.name }</span>
-          <span>{ post.createdAt }</span>
+          <span>{ post.formattedDate }</span>
         </div>
         <p className="card-text">{ post.text }</p>
         {
