@@ -1,51 +1,17 @@
-import { useId } from 'react';
+import React, { useId } from 'react';
 
 function Input(
   {
-    label = '', textarea = false, value, onChange, ...attributes
+    label = '', textarea = false, className, ...inputProps
   },
 ) {
-  const id = useId();
-
-  const inp = (
-    textarea
-      ? (
-        <textarea
-          value={value}
-          placeholder={attributes.placeholder}
-          onChange={(event) => onChange(event.target.value)}
-          className="form-control"
-          required={attributes.required}
-          id={id}
-        />
-      )
-      : (
-        <input
-          type={attributes.type}
-          value={value}
-          placeholder={attributes.placeholder}
-          className="form-control"
-          onChange={(event) => onChange(event.target.value)}
-          required={attributes.required}
-          id={id}
-        />
-      )
-  );
+  const inputId = useId();
+  const hasLabel = label.length > 0;
 
   return (
-    <div>
-      {
-        label
-          ? (
-            <label className="form-label" htmlFor={id}>
-              {' '}
-              { label }
-              {' '}
-            </label>
-          )
-          : null
-      }
-      { inp }
+    <div className={className}>
+      {hasLabel && <label className="form-label" htmlFor={inputId}>{label}</label>}
+      {React.createElement(textarea ? 'textarea' : 'input', { className: 'form-control', id: inputId, ...inputProps })}
     </div>
   );
 }
