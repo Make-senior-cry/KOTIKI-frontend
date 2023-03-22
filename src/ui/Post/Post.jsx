@@ -1,7 +1,7 @@
 import { useId } from 'react';
 import styles from './Post.module.css';
-import Avatar from '../Avatar/Avatar';
 import BannedPost from '../BannedPost';
+import PostTitle from '../PostTitle';
 
 function Post({ post, onLike, onReport }) {
   const dropdownMenuId = useId();
@@ -12,11 +12,11 @@ function Post({ post, onLike, onReport }) {
   return (
     <div className={`${styles.post} card`}>
       <div className="card-body">
-        <div className="card-title d-flex justify-content-between align-items-center">
-          <Avatar src={post.author.imageURL} size="small" />
-          <span>{ post.author.name }</span>
-          <span>{ post.formattedDate }</span>
-        </div>
+        <PostTitle
+          avatar={post.author.imageURL}
+          authorName={post.author.name}
+          createdAt={post.formattedDate}
+        />
         <p className="card-text">{ post.text }</p>
         {
           post.imageURL
