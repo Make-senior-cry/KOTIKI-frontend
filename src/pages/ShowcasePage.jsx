@@ -3,22 +3,25 @@ import Link from '../ui/Link';
 import Avatar from '../ui/Avatar/Avatar';
 import ProfileHeader from '../ui/ProfileHeader';
 import RegistrationForm from '../components/RegistrationForm';
+import Navbar from '../ui/Navbar';
 
 export default function ShowcasePage() {
+  const user = {
+    id: 1,
+    name: 'Stupid Bastard',
+    imageURL: 'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80',
+    description: 'bla bla bla',
+    email: 'user@mail.ru',
+    role: 'user',
+    followersCount: 10,
+    followingCount: 56,
+    postsCount: 32,
+  };
   return (
     <>
+      <Navbar user={user} logoText="KOTIKI" />
       <ProfileHeader
-        user={{
-          id: 1,
-          name: 'Stupid Bastard',
-          imageURL: 'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80',
-          description: 'bla bla bla',
-          email: 'user@mail.ru',
-          role: 'user',
-          followersCount: 10,
-          followingCount: 56,
-          postsCount: 32,
-        }}
+        user={user}
         showFollowButton
       />
       <Avatar size="big" />
