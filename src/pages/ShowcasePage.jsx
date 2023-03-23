@@ -4,7 +4,6 @@ import Avatar from '../ui/Avatar/Avatar';
 import ProfileHeader from '../ui/ProfileHeader';
 import RegistrationForm from '../components/RegistrationForm';
 import Navbar from '../ui/Navbar';
-import FeedSwitcher from '../ui/FeedSwitcher';
 
 export default function ShowcasePage() {
   const user = {
@@ -25,7 +24,6 @@ export default function ShowcasePage() {
         user={user}
         showFollowButton
       />
-      <FeedSwitcher />
       <Avatar size="big" />
       <Avatar size="small" />
       <Button variant="secondary">Button</Button>
