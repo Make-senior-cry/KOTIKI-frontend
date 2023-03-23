@@ -1,72 +1,40 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Protect from './components/Protect';
-import Button from './ui/Button';
-import Link from './ui/Link';
-import Avatar from './ui/Avatar/Avatar';
-import ProfileHeader from './ui/ProfileHeader';
-import RegistrationForm from './ui/RegistrationForm';
-import UserItem from './ui/UserItem';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import ShowcasePage from './pages/ShowcasePage';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* Showcase page */}
+        <Route path="/" element={<ShowcasePage />} />
         {/* Protected pages */}
         <Route
           path="/profile"
           element={(
             <Protect>
               Profile page
-              <Route path="/edit">Update profile page</Route>
             </Protect>
           )}
-        />
+        >
+          <Route path="/profile/edit" element={<>Update profile page</>} />
+        </Route>
         <Route path="/search-people" element={<Protect>Search people page</Protect>} />
         <Route path="/create-post" element={<Protect>Create post page</Protect>} />
         {/* Guest pages */}
         <Route
           path="/sign-in"
-          element={(
-            <Protect guestOnly redirectTo="/profile">
-              <ProfileHeader
-                user={{
-                  id: 1,
-                  name: 'Stupid Bastard',
-                  imageURL: 'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80',
-                  description: 'bla bla bla',
-                  email: 'user@mail.ru',
-                  role: 'user',
-                  followersCount: 10,
-                  followingCount: 56,
-                  postsCount: 32,
-                }}
-                showFollowButton
-              />
-              <Avatar size="big" />
-              <Avatar size="small" />
-              <Button variant="secondary">Button</Button>
-              <Link href="https://github.com/Make-senior-cry/KOTIKI-frontend" disableUnderline>Cats</Link>
-              <UserItem
-                user={{
-                  id: 1,
-                  name: 'Stupid Bastard',
-                  imageURL: 'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80',
-                  description: 'bla bla bla',
-                  email: 'user@mail.ru',
-                  role: 'user',
-                  followersCount: 10,
-                  followingCount: 56,
-                  postsCount: 32,
-                }}
-              />
-              <RegistrationForm onCreateAccount={() => alert('AAAA')} />
-            </Protect>
-          )}
+          element={<Protect guestOnly redirectTo="/profile"><LoginPage /></Protect>}
         />
-        <Route path="/sign-up" element={<Protect guestOnly redirectTo="/profile">SignUp page</Protect>} />
+        <Route
+          path="/sign-up"
+          element={<Protect guestOnly redirectTo="/profile"><RegisterPage /></Protect>}
+        />
         {/* Main page */}
         <Route
-          path="/"
+          path="/feed"
           element={(
             <Protect>
               Feed page
