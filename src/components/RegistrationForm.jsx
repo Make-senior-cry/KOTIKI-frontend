@@ -15,7 +15,7 @@ export default function RegistrationForm({ onCreateAccount, onCreateWithGoogle }
 
   return (
     <form onSubmit={handleCreateAccount} className="d-flex flex-column gap-3 align-items-center">
-      <h1>Создать аккаунт</h1>
+      <h1 className="text-center">Создать аккаунт</h1>
       <fieldset className="d-flex flex-column gap-2 w-100">
         <Input placeholder="Имя" autoComplete="on" type="text" required value={username} onChange={(e) => setUsername(e.target.value)} />
         <Input placeholder="Email" autoComplete="on" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} />

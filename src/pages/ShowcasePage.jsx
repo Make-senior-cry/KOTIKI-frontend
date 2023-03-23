@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import Button from '../ui/Button';
 import Link from '../ui/Link';
 import Avatar from '../ui/Avatar/Avatar';
 import ProfileHeader from '../ui/ProfileHeader';
 import RegistrationForm from '../components/RegistrationForm';
+import FeedSwitcher from '../ui/FeedSwitcher';
 import Navbar from '../ui/Navbar';
 
 export default function ShowcasePage() {
@@ -17,8 +19,10 @@ export default function ShowcasePage() {
     followingCount: 56,
     postsCount: 32,
   };
+  const [switcherState, setSwitcherState] = useState('1');
   return (
     <>
+      <FeedSwitcher active={switcherState} options={['1', '2', '3']} onChange={setSwitcherState} />
       <Navbar user={user} logoText="KOTIKI" />
       <ProfileHeader
         user={user}
