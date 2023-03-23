@@ -16,7 +16,7 @@ function PostAdditionalActions({ onReport }) {
       </button>
       <ul className="dropdown-menu" aria-labelledby={dropdownMenuId}>
         <li>
-          <button className="dropdown-item" type="button" onClick={onReport}>Пожаловаться</button>
+          <button className="dropdown-item" type="button" onClick={onReport}>Нашипеть</button>
         </li>
       </ul>
     </div>
