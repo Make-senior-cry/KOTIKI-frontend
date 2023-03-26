@@ -3,7 +3,7 @@ import config from '../config/config';
 
 const httpClient = axios.create({
   baseURL: config.API_URL,
-  withCredentials: config.withCredentials,
+  withCredentials: true,
 });
 
 export default httpClient;
