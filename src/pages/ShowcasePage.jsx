@@ -4,7 +4,7 @@ import Link from '../ui/Link';
 import Avatar from '../ui/Avatar/Avatar';
 import ProfileHeader from '../ui/ProfileHeader';
 import RegistrationForm from '../components/RegistrationForm';
-import FeedSwitcher from '../ui/FeedSwitcher';
+import FeedSwitcher from '../ui/FeedSwitcher/FeedSwitcher';
 import Navbar from '../ui/Navbar';
 
 export default function ShowcasePage() {
