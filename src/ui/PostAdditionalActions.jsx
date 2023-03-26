@@ -1,20 +1,26 @@
-import { useId } from 'react';
+import { useEffect, useRef } from 'react';
+import { Dropdown } from 'bootstrap';
 
 function PostAdditionalActions({ onReport }) {
-  const dropdownMenuId = useId();
+  const buttonRef = useRef();
+
+  useEffect(() => {
+    const dropdown = new Dropdown(buttonRef.current);
+
+    return () => dropdown.dispose();
+  }, [buttonRef.current]);
 
   return (
     <div className="dropdown float-end">
       <button
         className="btn dropdown-toggle"
         type="button"
-        id={dropdownMenuId}
         data-bs-toggle="dropdown"
-        aria-expanded="false"
+        ref={buttonRef}
       >
         <img src="three-dots-vertical.svg" alt="" />
       </button>
-      <ul className="dropdown-menu" aria-labelledby={dropdownMenuId}>
+      <ul className="dropdown-menu">
         <li>
           <button className="dropdown-item" type="button" onClick={onReport}>Нашипеть</button>
         </li>
