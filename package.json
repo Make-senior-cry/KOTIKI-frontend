@@ -33,8 +33,7 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.3",
-    "vite": "^4.1.0",
-    "vite-plugin-eslint": "^1.8.1"
+    "vite": "^4.1.0"
   },
   "optionalDependencies": {
     "@esbuild/win32-x64": "^0.17.12",
