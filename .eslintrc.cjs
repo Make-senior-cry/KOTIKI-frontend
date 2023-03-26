@@ -32,6 +32,7 @@ module.exports = {
     'react/react-in-jsx-scope': ['off'],
     'linebreak-style': ['off'],
     'react/prop-types': ['off'],
+    'react/jsx-props-no-spreading': ['off'],
     'react/jsx-no-bind': ['off'],
     ...disableA11yRules,
   },

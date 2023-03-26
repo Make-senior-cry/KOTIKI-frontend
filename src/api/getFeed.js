@@ -1,5 +1,5 @@
 import httpClient from './httpClient';
-import Post from '../entities/post';
+import PostRecord from '../entities/postRecord';
 import Pagination from '../entities/pagination';
 
 const getFeed = (type, skip = 0, limit = 10) => httpClient
@@ -8,7 +8,7 @@ const getFeed = (type, skip = 0, limit = 10) => httpClient
     const {
       dataList, hasPrev, hasNext, skip, limit,
     } = response.data;
-    const posts = dataList.map((postData) => new Post(postData));
+    const posts = dataList.map((postData) => new PostRecord(postData));
     return new Pagination({
       dataList: posts,
       hasPrev,
