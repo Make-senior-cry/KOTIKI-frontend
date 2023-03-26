@@ -13,11 +13,13 @@
   },
   "dependencies": {
     "axios": "^1.3.4",
+    "bootstrap": "^5.2.3",
     "classnames": "^2.3.2",
     "mobx": "^6.8.0",
     "mobx-react-lite": "^3.4.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-popper": "^2.3.0",
     "react-router-dom": "^6.9.0"
   },
   "devDependencies": {
