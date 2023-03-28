@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import Button from '../ui/Button';
 import Link from '../ui/Link';
 import Avatar from '../ui/Avatar/Avatar';
 import ProfileHeader from '../ui/ProfileHeader';
 import RegistrationForm from '../components/RegistrationForm';
+import FeedSwitcher from '../ui/FeedSwitcher/FeedSwitcher';
 import Navbar from '../ui/Navbar';
 import User from '../entities/user';
 import PostRecord from '../entities/postRecord';
@@ -20,7 +22,7 @@ export default function ShowcasePage() {
     followingCount: 56,
     postsCount: 32,
   });
-
+  const [switcherState, setSwitcherState] = useState('1');
   const postExample = new PostRecord({
     id: 1,
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
@@ -31,9 +33,9 @@ export default function ShowcasePage() {
     reportsCount: 0,
     author: user,
   });
-
   return (
     <>
+      <FeedSwitcher active={switcherState} options={['1', '2', '3']} onChange={setSwitcherState} />
       <Navbar user={user} logoText="KOTIKI" />
       <ProfileHeader
         user={user}
