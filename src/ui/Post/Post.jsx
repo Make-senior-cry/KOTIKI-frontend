@@ -19,7 +19,11 @@ function Post({ post, onLike, onReport }) {
         <p className="card-text">{ post.text }</p>
         <PostImage imageUrl={post.imageURL} />
       </div>
-      <PostFooter likesCount={post.likesCount} onLike={onLike} onReport={onReport} />
+      <PostFooter
+        likesCount={post.likesCount}
+        onLike={() => onLike(post.id)}
+        onReport={() => onReport(post.id)}
+      />
     </div>
   );
 }
