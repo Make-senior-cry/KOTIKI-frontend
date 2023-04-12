@@ -25,3 +25,15 @@ export default class User {
     return `/user/${this.id}`;
   }
 }
+
+export const fakeUser = new User({
+  id: 0,
+  name: 'Fake',
+  imageURL: 'https://i1.sndcdn.com/avatars-000306703239-2lpxao-t500x500.jpg',
+  description: 'A fake user',
+  email: 'fake@fake.com',
+  role: 'user',
+  followersCount: 100,
+  followingCount: 100,
+  postsCount: 100,
+});
