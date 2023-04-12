@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import AuthLayout from '../components/AuthLayout';
+import AuthLayout from '../ui/AuthLayout';
 import RegistrationForm from '../components/RegistrationForm';
 import userStore from '../store/userStore';
 

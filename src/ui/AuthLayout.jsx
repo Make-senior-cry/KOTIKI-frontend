@@ -1,4 +1,4 @@
-import Alert from '../ui/Alert';
+import Alert from './Alert';
 
 export default function AuthLayout({ errorMessage, children }) {
   const showError = errorMessage.length > 0;
