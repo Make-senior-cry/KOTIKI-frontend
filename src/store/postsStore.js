@@ -11,9 +11,9 @@ export const feedType = {
 class PostsStore {
   posts = [];
 
-  hasNext = false;
+  hasNextPage = false;
 
-  hasPrev = false;
+  hasPrevPage = false;
 
   type = feedType.NEW;
 
@@ -62,8 +62,8 @@ class PostsStore {
 
   setDataFromPostPagintaionDTO(postsPagination) {
     this.posts = postsPagination.dataList;
-    this.hasNext = postsPagination.hasNext;
-    this.hasPrev = postsPagination.hasPrev;
+    this.hasNextPage = postsPagination.hasNext;
+    this.hasPrevPage = postsPagination.hasPrev;
   }
 }
 

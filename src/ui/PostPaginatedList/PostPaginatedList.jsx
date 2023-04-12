@@ -4,8 +4,8 @@ import PostPaginatedListPosts from './PostPaginatedListPosts';
 
 export default function PostPaginatedList({
   posts,
-  hasNext,
-  hasPrev,
+  hasNextPage,
+  hasPrevPage,
   onNext,
   onPrev,
   page,
@@ -26,8 +26,8 @@ export default function PostPaginatedList({
         )
         : <Alert type="info">Постов нет</Alert>}
       <PostPaginatedListPagination
-        hasNext={hasNext}
-        hasPrev={hasPrev}
+        hasNextPage={hasNextPage}
+        hasPrevPage={hasPrevPage}
         onNext={onNext}
         onPrev={onPrev}
         page={page}

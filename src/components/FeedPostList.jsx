@@ -15,13 +15,13 @@ function FeedPostList() {
   }, [skip, limit]);
 
   function onNext() {
-    if (postsStore.hasNext) {
+    if (postsStore.hasNextPage) {
       navigateNextPage();
     }
   }
 
   function onPrev() {
-    if (postsStore.hasPrev) {
+    if (postsStore.hasPrevPage) {
       navigatePrevPage();
     }
   }
@@ -29,8 +29,8 @@ function FeedPostList() {
   return (
     <PostPaginatedList
       posts={postsStore.posts}
-      hasNext={postsStore.hasNext}
-      hasPrev={postsStore.has}
+      hasNextPage={postsStore.hasNextPage}
+      hasPrevPage={postsStore.hasPrevPage}
       onReport={postsStore.onReport}
       onLike={postsStore.onLike}
       onNext={onNext}

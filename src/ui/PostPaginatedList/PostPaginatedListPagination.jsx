@@ -1,12 +1,12 @@
 import cn from 'classnames';
 
 export default function PostPaginatedListPagination({
-  hasPrev, hasNext, onPrev, onNext, page,
+  hasPrevPage, hasNextPage, onPrev, onNext, page,
 }) {
   return (
     <nav>
       <ul className="pagination">
-        <li className={cn('page-item', !hasPrev && 'disabled')}>
+        <li className={cn('page-item', !hasPrevPage && 'disabled')}>
           <button
             type="button"
             className="page-link"
@@ -18,7 +18,7 @@ export default function PostPaginatedListPagination({
         <li className="page-item">
           {page}
         </li>
-        <li className={cn('page-item', !hasNext && 'disabled')}>
+        <li className={cn('page-item', !hasNextPage && 'disabled')}>
           <button
             type="button"
             className="page-link"
