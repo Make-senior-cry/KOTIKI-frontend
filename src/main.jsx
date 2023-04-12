@@ -6,7 +6,7 @@ import './global.css';
 import config from './config/config';
 
 if (import.meta.env.MODE !== 'production') {
-  console.table(config);
+  console.log(config);
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
