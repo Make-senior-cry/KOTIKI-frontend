@@ -23,7 +23,7 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <div>
+          <div className="d-flex align-items-center gap-2">
             <NavbarSearch />
             <NavbarUser />
           </div>
