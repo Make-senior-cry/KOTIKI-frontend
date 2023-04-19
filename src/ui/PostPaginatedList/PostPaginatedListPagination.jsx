@@ -11,18 +11,26 @@ export default function PostPaginatedListPagination({
             type="button"
             className="page-link"
             onClick={onPrev}
+            disabled={!hasPrevPage}
           >
             Предыдущая страница
           </button>
         </li>
         <li className="page-item">
-          {page}
+          <button
+            type="button"
+            className="page-link"
+            disabled
+          >
+            {page}
+          </button>
         </li>
         <li className={cn('page-item', !hasNextPage && 'disabled')}>
           <button
             type="button"
             className="page-link"
             onClick={onNext}
+            disabled={!hasNextPage}
           >
             Слелующая страница
           </button>

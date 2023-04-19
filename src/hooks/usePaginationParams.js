@@ -1,9 +1,14 @@
 import { useSearchParams } from 'react-router-dom';
 
+const parseIntOrDefault = (stringValue, defaultValue) => {
+  const parsed = parseInt(stringValue, 10);
+  return Number.isNaN(parsed) ? defaultValue : parsed;
+};
+
 export default function usePaginationParams() {
   const [params, setParams] = useSearchParams();
-  const skip = parseInt(params.get('skip'), 10);
-  const limit = parseInt(params.get('limit'), 10);
+  const skip = parseIntOrDefault(params.get('skip'), 0);
+  const limit = parseIntOrDefault(params.get('limit'), 1);
 
   function navigateNextPage() {
     const updatedParams = new URLSearchParams(params);
