@@ -3,7 +3,8 @@ import signIn from '../api/signIn';
 import signUp from '../api/signUp';
 import signOut from '../api/signOut';
 import getUser from '../api/getUser';
-import User from '../entities/user';
+import User, { fakeUser } from '../entities/user';
+import config from '../config/config';
 
 class UserStore {
   user = null;
@@ -14,8 +15,12 @@ class UserStore {
   }
 
   signIn(email, password) {
-    return signIn(email, password)
-      .then((user) => runInAction(() => { this.user = user; }));
+    if (config.FAKE_LOGIN) {
+      this.user = fakeUser;
+    } else {
+      signIn(email, password)
+        .then((user) => runInAction(() => { this.user = user; }));
+    }
   }
 
   signUp(name, email, password) {
@@ -29,9 +34,13 @@ class UserStore {
   }
 
   fetchUserData() {
-    return getUser()
-      .then((user) => runInAction(() => { this.user = user; }))
-      .catch((error) => console.error(error));
+    if (config.FAKE_LOGIN) {
+      this.user = fakeUser;
+    } else {
+      getUser()
+        .then((user) => runInAction(() => { this.user = user; }))
+        .catch((error) => console.error(error));
+    }
   }
 
   get isAuthorized() {

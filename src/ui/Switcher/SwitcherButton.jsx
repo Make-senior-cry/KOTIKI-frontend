@@ -1,6 +1,6 @@
 import { useId } from 'react';
 
-export default function FeedSwitcherButton({ value, checked, onChange }) {
+export default function SwitcherButton({ value, checked, onChange }) {
   const id = useId();
 
   return (
@@ -11,7 +11,7 @@ export default function FeedSwitcherButton({ value, checked, onChange }) {
         className="btn-check"
         value={value}
         checked={checked}
-        onClick={onChange}
+        onChange={onChange}
       />
       <label className="btn btn-outline-primary" htmlFor={id}>{value}</label>
     </>
