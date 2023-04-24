@@ -35,12 +35,13 @@ export default function ShowcasePage() {
   });
   return (
     <>
-      <FeedSwitcher active={switcherState} options={['1', '2', '3']} onChange={setSwitcherState} />
       <Navbar user={user} logoText="KOTIKI" />
       <ProfileHeader
         user={user}
         showFollowButton
       />
+      <FeedSwitcher active={switcherState} options={['1', '2', '3']} onChange={setSwitcherState} />
+      <PhotoUploader user={user} />
       <Avatar size="big" />
       <Avatar size="small" />
       <Button variant="secondary">Button</Button>
