@@ -9,6 +9,7 @@ import Navbar from '../components/Navbar/Navbar';
 import User from '../entities/user';
 import PostRecord from '../entities/postRecord';
 import Post from '../ui/Post/Post';
+import PhotoUploader from '../ui/PhotoUploader';
 
 export default function ShowcasePage() {
   const user = new User({
@@ -41,7 +42,11 @@ export default function ShowcasePage() {
         showFollowButton
       />
       <FeedSwitcher active={switcherState} options={['1', '2', '3']} onChange={setSwitcherState} />
-      <PhotoUploader user={user} />
+      <div className="input-group mb-3">
+        <label className="input-group-text" htmlFor="inputGroupFile01">Upload</label>
+        <input type="file" className="form-control" id="inputGroupFile01" />
+      </div>
+      <PhotoUploader onFileAdded={console.log} isCircle appeal="ГРУЗИ ФОТО БЫСТРО" label="ТВОЯ МАМАША" backgroundImageURL="https://avatars.dzeninfra.ru/get-zen_doc/34175/pub_5cea2361585c2f00b5c9cb0b_5cea310a752e5b00b25b9c01/scale_1200" user={user} />
       <Avatar size="big" />
       <Avatar size="small" />
       <Button variant="secondary">Button</Button>

@@ -5,3 +5,36 @@ html {
 .form-container {
   max-width: 20rem;
 }
+
+.photoUploaderLabel{
+  width: 250px;
+  height: 250px;
+}
+
+.uploaderPhotoCircle{
+  border-radius: 50%;
+}
+
+.uploaderPhotoSquare{
+  border-radius: 8px;
+}
+
+.photoUploader{
+  position: relative;
+}
+
+.dropArea{
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+}
+
+.fileName{
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: white;
+  opacity: 50%;
+}
