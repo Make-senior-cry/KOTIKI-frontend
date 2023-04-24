@@ -9,8 +9,6 @@ import Navbar from '../components/Navbar/Navbar';
 import User from '../entities/user';
 import PostRecord from '../entities/postRecord';
 import Post from '../ui/Post/Post';
-import FeedSwitcher from '../ui/FeedSwitcher';
-import Navbar from '../ui/Navbar';
 import PhotoUploader from '../ui/PhotoUploader';
 
 export default function ShowcasePage() {
