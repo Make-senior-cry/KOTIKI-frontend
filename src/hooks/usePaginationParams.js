@@ -1,6 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
 
-const parseIntOrDefault = (stringValue, defaultValue) => {
+export const parseIntOrDefault = (stringValue, defaultValue) => {
   const parsed = parseInt(stringValue, 10);
   return Number.isNaN(parsed) ? defaultValue : parsed;
 };
