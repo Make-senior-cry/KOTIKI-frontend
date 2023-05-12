@@ -4,6 +4,7 @@ import FeedPage from './pages/FeedPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ShowcasePage from './pages/ShowcasePage';
+import SearchPeoplePage from './pages/SearchPeoplePage';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
         >
           <Route path="/profile/edit" element={<>Update profile page</>} />
         </Route>
-        <Route path="/search-people" element={<Protect>Search people page</Protect>} />
+        <Route path="/search-people" element={<Protect redirectTo="/search-people"><SearchPeoplePage /></Protect>} />
         <Route path="/create-post" element={<Protect>Create post page</Protect>} />
         {/* Guest pages */}
         <Route
