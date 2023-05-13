@@ -1,6 +1,6 @@
-import FeedSwitcherButton from './FeedSwitcherButton';
+import SwitcherButton from './SwitcherButton';
 
-export default function FeedSwitcher({ active, options, onChange }) {
+export default function Switcher({ active, options, onChange }) {
   const handleChange = (e) => {
     onChange(e.target.value);
   };
@@ -8,7 +8,7 @@ export default function FeedSwitcher({ active, options, onChange }) {
   return (
     <div className="btn-group" role="group">
       {options.map((buttonName) => (
-        <FeedSwitcherButton
+        <SwitcherButton
           key={buttonName}
           value={buttonName}
           checked={active === buttonName}
