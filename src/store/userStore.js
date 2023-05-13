@@ -17,10 +17,10 @@ class UserStore {
   signIn(email, password) {
     if (config.FAKE_LOGIN) {
       this.user = fakeUser;
-    } else {
-      signIn(email, password)
-        .then((user) => runInAction(() => { this.user = user; }));
+      return Promise.resolve();
     }
+    return signIn(email, password)
+      .then((user) => runInAction(() => { this.user = user; }));
   }
 
   signUp(name, email, password) {
