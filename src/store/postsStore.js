@@ -26,6 +26,13 @@ class PostsStore {
     });
   }
 
+  async fetchUserPosts(userId, skip, limit) {
+    const postsPagination = await API.getPosts(userId, skip, limit);
+    runInAction(() => {
+      this.setDataFromPostPagintaionDTO(postsPagination);
+    });
+  }
+
   setType(newType) {
     this.type = newType;
   }
