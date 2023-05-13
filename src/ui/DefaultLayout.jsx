@@ -11,13 +11,13 @@ export default function DefaultLayout({ hero, children, errorMessage }) {
         <div className="mb-4">
           {hero}
         </div>
-        {!showError
-          ? children
-          : (
+        {showError
+          ? (
             <Alert type="danger" className="mt-5">
               {errorMessage}
             </Alert>
-          )}
+          )
+          : children}
       </main>
     </>
   );
