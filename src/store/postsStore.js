@@ -1,7 +1,5 @@
 import { makeAutoObservable, runInAction } from 'mobx';
-import getFeed from '../api/getFeed';
-import likePost from '../api/likePost';
-import reportPost from '../api/reportPost';
+import * as API from '../api';
 
 export const feedType = {
   FOLLOWING: 'following',
@@ -21,37 +19,44 @@ class PostsStore {
     makeAutoObservable(this);
   }
 
-  fetchFeed(skip, limit) {
-    return getFeed(this.type, skip, limit)
-      .then((postsPagination) => {
-        runInAction(() => {
-          this.setDataFromPostPagintaionDTO(postsPagination);
-        });
-      })
-      .catch((error) => console.error(error));
+  async fetchFeed(skip, limit) {
+    try {
+      const postsPagination = await API.getFeed(this.type, skip, limit);
+      runInAction(() => {
+        this.setDataFromPostPagintaionDTO(postsPagination);
+      });
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   setType(newType) {
     this.type = newType;
   }
 
-  likePost(postId) {
-    likePost(postId).then((likesCount) => {
+  async likePost(postId) {
+    try {
+      const likesCount = await API.likePost(postId);
       runInAction(() => {
         this.updatePostById(postId, { likesCount });
       });
-    });
+    } catch (e) {
+      console.error(e);
+    }
   }
 
-  reportPost(postId) {
-    reportPost(postId).then((reportsCount) => {
+  async reportPost(postId) {
+    try {
+      const reportsCount = await API.reportPost(postId);
       runInAction(() => {
         this.updatePostById(postId, { reportsCount });
       });
-    });
+    } catch (e) {
+      console.error(e);
+    }
   }
 
-  updatePostById(postId, newFields) {
+  async updatePostLocallyById(postId, newFields) {
     this.posts = this.posts.map((post) => {
       if (post.id === postId) {
         return { ...post, ...newFields };
