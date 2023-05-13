@@ -1,8 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Protect from './components/Protect';
+import FeedPage from './pages/FeedPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ShowcasePage from './pages/ShowcasePage';
+import SearchPeoplePage from './pages/SearchPeoplePage';
 
 function App() {
   return (
@@ -21,7 +23,7 @@ function App() {
         >
           <Route path="/profile/edit" element={<>Update profile page</>} />
         </Route>
-        <Route path="/search-people" element={<Protect>Search people page</Protect>} />
+        <Route path="/search/user" element={<Protect><SearchPeoplePage /></Protect>} />
         <Route path="/create-post" element={<Protect>Create post page</Protect>} />
         {/* Guest pages */}
         <Route
@@ -35,11 +37,7 @@ function App() {
         {/* Main page */}
         <Route
           path="/feed"
-          element={(
-            <Protect>
-              Feed page
-            </Protect>
-          )}
+          element={(<Protect><FeedPage /></Protect>)}
         />
       </Routes>
     </BrowserRouter>
