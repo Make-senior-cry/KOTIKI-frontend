@@ -1,6 +1,9 @@
 import Navbar from '../components/Navbar/Navbar';
+import Alert from './Alert';
 
-export default function DefaultLayout({ hero, children }) {
+export default function DefaultLayout({ hero, children, errorMessage }) {
+  const showError = errorMessage.length > 0;
+
   return (
     <>
       <Navbar />
@@ -9,6 +12,11 @@ export default function DefaultLayout({ hero, children }) {
           {hero}
         </div>
         {children}
+        {showError && (
+          <Alert type="danger" className="mt-5">
+            {errorMessage}
+          </Alert>
+        )}
       </main>
     </>
   );
