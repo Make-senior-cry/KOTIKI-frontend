@@ -2,8 +2,8 @@ import { makeAutoObservable, runInAction } from 'mobx';
 import * as API from '../api';
 
 export const feedType = {
-  FOLLOWING: 'following',
-  NEW: 'new',
+  FOLLOWING: 'FOLLOWING',
+  NEW: 'NEW',
 };
 
 class PostsStore {
@@ -20,14 +20,10 @@ class PostsStore {
   }
 
   async fetchFeed(skip, limit) {
-    try {
-      const postsPagination = await API.getFeed(this.type, skip, limit);
-      runInAction(() => {
-        this.setDataFromPostPagintaionDTO(postsPagination);
-      });
-    } catch (e) {
-      console.error(e);
-    }
+    const postsPagination = await API.getFeed(this.type, skip, limit);
+    runInAction(() => {
+      this.setDataFromPostPagintaionDTO(postsPagination);
+    });
   }
 
   setType(newType) {
