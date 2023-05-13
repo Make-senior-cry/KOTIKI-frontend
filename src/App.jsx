@@ -23,7 +23,7 @@ function App() {
         >
           <Route path="/profile/edit" element={<>Update profile page</>} />
         </Route>
-        <Route path="/search-people" element={<Protect redirectTo="/search-people"><SearchPeoplePage /></Protect>} />
+        <Route path="/search/user" element={<Protect><SearchPeoplePage /></Protect>} />
         <Route path="/create-post" element={<Protect>Create post page</Protect>} />
         {/* Guest pages */}
         <Route
