@@ -1,13 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import SearchForm from '../components/SearchForm';
 import UserItemList from '../ui/UserItemList';
 import Navbar from '../components/Navbar/Navbar';
 import useSearchValue from '../hooks/useSearchValue';
+import searchUsers from '../api/searchUsers';
 
 export default function SearchPeoplePage() {
   const [users, setUsers] = useState([]);
+  const [searchValue, setSearchValue] = useSearchValue();
 
-  const [searchValue, setSearchValue] = useSearchValue(setUsers);
+  useEffect(() => {
+    searchUsers(searchValue, 0, 10)
+      .then((response) => {
+        setUsers(response.dataList);
+      });
+  }, [searchValue]);
 
   return (
     <main className="container">
