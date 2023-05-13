@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Input from '../ui/Input';
 import Button from '../ui/Button';
 
 export default function SearchForm({ onSearchUsers, searchValue }) {
   const [value, setValue] = useState(searchValue);
+
+  useEffect(() => {
+    setValue(searchValue);
+  }, [searchValue]);
 
   function handleSearchPeople(event) {
     event.preventDefault();
