@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ShowcasePage from './pages/ShowcasePage';
 import SearchPeoplePage from './pages/SearchPeoplePage';
+import ProfilePage from './pages/ProfilePage';
 
 function App() {
   return (
@@ -15,12 +16,8 @@ function App() {
         {/* Protected pages */}
         <Route
           path="/profile"
-          element={(
-            <Protect>
-              Profile page
-            </Protect>
-          )}
         >
+          <Route path=":userId" element={(<Protect><ProfilePage /></Protect>)} />
           <Route path="/profile/edit" element={<>Update profile page</>} />
         </Route>
         <Route path="/search/user" element={<Protect><SearchPeoplePage /></Protect>} />
