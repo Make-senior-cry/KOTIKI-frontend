@@ -1,7 +1,9 @@
 import Avatar from './Avatar/Avatar';
 import Button from './Button';
 
-export default function ProfileHeader({ user, showFollowButton, onClickFollow }) {
+export default function ProfileHeader({
+  user, actionButtonText, handleActionButtonClick,
+}) {
   if (user == null) {
     throw new Error('User is undefined');
   }
@@ -30,8 +32,8 @@ export default function ProfileHeader({ user, showFollowButton, onClickFollow })
               <div className="text-uppercase">Посты</div>
             </div>
           </div>
-          <div className={`row-sm-4 ${showFollowButton ? '' : 'd-none'}`}>
-            <Button onClick={onClickFollow} variant="outline-primary">ПОДПИСАТЬСЯ</Button>
+          <div className="row-sm-4">
+            <Button onClick={handleActionButtonClick} variant="outline-primary">{actionButtonText}</Button>
           </div>
         </div>
       </div>
