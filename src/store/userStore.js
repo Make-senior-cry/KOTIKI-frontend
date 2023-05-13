@@ -37,7 +37,7 @@ class UserStore {
       this.user = fakeUser;
     } else {
       try {
-        const user = await API.getUser();
+        const user = await API.getAuthorizedUser();
         runInAction(() => { this.user = user; });
       } catch (e) {
         console.error(e);
