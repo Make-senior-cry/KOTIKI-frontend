@@ -16,7 +16,8 @@ class UserStore {
 
   signIn(email, password) {
     if (config.FAKE_LOGIN) {
-      return new Promise(() => { this.user = fakeUser; });
+      this.user = fakeUser;
+      return Promise.resolve();
     }
     return signIn(email, password)
       .then((user) => runInAction(() => { this.user = user; }));
