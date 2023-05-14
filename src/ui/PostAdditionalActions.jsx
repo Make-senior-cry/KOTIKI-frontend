@@ -18,7 +18,7 @@ function PostAdditionalActions({ onReport }) {
         data-bs-toggle="dropdown"
         ref={buttonRef}
       >
-        <img src="three-dots-vertical.svg" alt="" />
+        <img src="../../../public/three-dots-vertical.svg" alt="" />
       </button>
       <ul className="dropdown-menu">
         <li>
