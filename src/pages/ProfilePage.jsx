@@ -55,8 +55,13 @@ function ProfilePage() {
   }
 
   function follow() {
-    console.log('FOLLOW');
-    setIsFollowed(!isFollowed);
+    API.follow(userId)
+      .then(() => {
+        setIsFollowed(!isFollowed);
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
   }
 
   return (
