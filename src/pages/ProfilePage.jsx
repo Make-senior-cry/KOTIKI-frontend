@@ -10,9 +10,9 @@ import * as API from '../api';
 
 function ProfilePage() {
   const [errorMessage, setErrorMessage] = useState('');
-  const [user, setUser] = useState({});
-  const [isFollowed, setIsFollowed] = useState(false);
   const { userId } = useParams();
+  const [user, setUser] = useState({});
+  const [isFollower, setIsFollower] = useState(false);
   const {
     skip, limit, navigateNextPage, navigatePrevPage,
   } = usePaginationParams();
@@ -23,7 +23,7 @@ function ProfilePage() {
   if (isCurrentUser) {
     actionButtonText = 'ИЗМЕНИТЬ ПРОФИЛЬ';
   } else {
-    actionButtonText = isFollowed ? 'ОТПИСАТЬСЯ' : 'ПОДПИСАТЬСЯ';
+    actionButtonText = isFollower ? 'ОТПИСАТЬСЯ' : 'ПОДПИСАТЬСЯ';
   }
 
   function setAlien() {
@@ -36,13 +36,28 @@ function ProfilePage() {
       });
   }
 
+  function isFollow() {
+    API.isFollower(userId)
+      .then((isFollow) => {
+        setIsFollower(Boolean(isFollow));
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }
+
+  // Определение пользователя, которого надо отрисовать
   useEffect(() => {
     if (parseInt(user.id, 10) !== parseInt(userId, 10)) {
       if (isCurrentUser) setUser(userStore.user);
-      else setAlien();
+      else {
+        setAlien();
+        isFollow();
+      }
     }
   });
 
+  // Загрузка постов пользователя
   useEffect(() => {
     postsStore.fetchUserPosts(userId, skip, limit)
       .catch((error) => {
@@ -57,7 +72,7 @@ function ProfilePage() {
   function follow() {
     API.follow(userId)
       .then(() => {
-        setIsFollowed(!isFollowed);
+        setIsFollower(!isFollower);
       })
       .catch((error) => {
         alert(error.message);
