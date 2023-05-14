@@ -2,7 +2,7 @@ import httpClient from './httpClient';
 
 const follow = (followingId) => httpClient
   .post('/user/follow', {
-    id: followingId,
+    followingId,
   })
   .then((response) => {
     console.log(response);

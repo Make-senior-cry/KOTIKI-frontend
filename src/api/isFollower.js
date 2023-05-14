@@ -3,7 +3,7 @@ import httpClient from './httpClient';
 const isFollower = (followingId) => httpClient
   .get('/user/isFollower', {
     params: {
-      followingId,
+      id: followingId,
     },
   })
   .then((response) => response.data);
