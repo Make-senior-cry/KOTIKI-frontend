@@ -1,9 +1,9 @@
 import httpClient from './httpClient';
 
-const isFollower = (followingId) => httpClient
-  .get('/user/isFollower', {
+const isFollower = (id) => httpClient
+  .get('/user/following', {
     params: {
-      id: followingId,
+      id,
     },
   })
   .then((response) => response.data);
