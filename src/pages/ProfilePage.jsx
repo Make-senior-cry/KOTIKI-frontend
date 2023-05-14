@@ -11,15 +11,20 @@ import * as API from '../api';
 function ProfilePage() {
   const [errorMessage, setErrorMessage] = useState('');
   const [user, setUser] = useState({});
-
+  const [isFollowed, setIsFollowed] = useState(false);
+  const { userId } = useParams();
   const {
     skip, limit, navigateNextPage, navigatePrevPage,
   } = usePaginationParams();
   const page = skip / limit + 1;
 
-  const { userId } = useParams();
   const isCurrentUser = parseInt(userStore.user.id, 10) === parseInt(userId, 10);
-  const actionButtonText = isCurrentUser ? 'ИЗМЕНИТЬ ПРОФИЛЬ' : 'ПОДПИСАТЬСЯ';
+  let actionButtonText;
+  if (isCurrentUser) {
+    actionButtonText = 'ИЗМЕНИТЬ ПРОФИЛЬ';
+  } else {
+    actionButtonText = isFollowed ? 'ОТПИСАТЬСЯ' : 'ПОДПИСАТЬСЯ';
+  }
 
   function setAlien() {
     API.getUser(userId)
@@ -46,11 +51,12 @@ function ProfilePage() {
   }, [skip, limit]);
 
   function handleEditProfile() {
-
+    console.log('EDIT PROFILE');
   }
 
   function follow() {
-
+    console.log('FOLLOW');
+    setIsFollowed(!isFollowed);
   }
 
   return (
