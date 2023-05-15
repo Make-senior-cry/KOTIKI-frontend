@@ -1,7 +1,8 @@
-import { makeAutoObservable } from "mobx"
+import { makeAutoObservable } from 'mobx';
 
 class ModalStore {
   currentModal;
+
   ADD_POST_MODAL = 'ADD_POST_MODAL';
 
   constructor() {
