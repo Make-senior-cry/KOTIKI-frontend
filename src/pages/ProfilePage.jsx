@@ -72,6 +72,7 @@ function ProfilePage() {
   function follow() {
     API.follow(userId)
       .then((u) => {
+        setIsFollower(!isFollower);
         setUser(u);
       })
       .catch((error) => {
