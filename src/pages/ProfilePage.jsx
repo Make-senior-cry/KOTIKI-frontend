@@ -36,7 +36,7 @@ function ProfilePage() {
       });
   }
 
-  function isFollow() {
+  function updateIsFollower() {
     API.isFollower(userId)
       .then((isFollow) => {
         setIsFollower(isFollow);
@@ -52,7 +52,7 @@ function ProfilePage() {
       if (isCurrentUser) setUser(userStore.user);
       else {
         setAlien();
-        isFollow();
+        updateIsFollower();
       }
     }
   });
