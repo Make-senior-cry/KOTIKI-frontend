@@ -1,8 +1,5 @@
 import { makeAutoObservable, runInAction } from 'mobx';
-import signIn from '../api/signIn';
-import signUp from '../api/signUp';
-import signOut from '../api/signOut';
-import getUser from '../api/getUser';
+import * as API from '../api';
 import User, { fakeUser } from '../entities/user';
 import config from '../config/config';
 
@@ -11,35 +8,40 @@ class UserStore {
 
   constructor() {
     makeAutoObservable(this);
-    this.fetchUserData();
   }
 
-  signIn(email, password) {
+  async signIn(email, password) {
     if (config.FAKE_LOGIN) {
       this.user = fakeUser;
     } else {
-      signIn(email, password)
-        .then((user) => runInAction(() => { this.user = user; }));
+      // Errors from signIn must be catched in a calling component
+      const user = await API.signIn(email, password);
+      runInAction(() => { this.user = user; });
     }
   }
 
-  signUp(name, email, password) {
-    return signUp(name, email, password)
-      .then((user) => runInAction(() => { this.user = user; }));
+  async signUp(name, email, password) {
+    // Errors from signUp must be catched in a calling component
+    const user = await API.signUp(name, email, password);
+    runInAction(() => { this.user = user; });
   }
 
-  signOut() {
-    return signOut()
-      .then((user) => runInAction(() => { this.user = user; }));
+  async signOut() {
+    // Errors from signOut must be catched in a calling component
+    await API.signOut();
+    runInAction(() => { this.user = null; });
   }
 
-  fetchUserData() {
+  async fetchUserData() {
     if (config.FAKE_LOGIN) {
       this.user = fakeUser;
     } else {
-      getUser()
-        .then((user) => runInAction(() => { this.user = user; }))
-        .catch((error) => console.error(error));
+      try {
+        const user = await API.getUser();
+        runInAction(() => { this.user = user; });
+      } catch (e) {
+        console.error(e);
+      }
     }
   }
 
