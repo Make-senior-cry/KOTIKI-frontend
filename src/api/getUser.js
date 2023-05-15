@@ -9,9 +9,9 @@ const getUser = (userId) => httpClient
     },
   })
   .then((response) => {
-    const user = response.data;
-    user.imageURL = getImageSource(response.data.imageURL);
-    return new User(response.data);
+    const userData = response.data;
+    userData.imageURL = getImageSource(response.data.imageURL);
+    return new User(userData);
   });
 
 export default getUser;
