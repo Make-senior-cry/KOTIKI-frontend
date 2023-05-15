@@ -5,6 +5,8 @@ class ModalStore {
 
   ADD_POST_MODAL = 'ADD_POST_MODAL';
 
+  EDIT_USER_MODAL = 'EDIT_USER_MODAL';
+
   constructor() {
     makeAutoObservable(this);
     this.showModal = this.showModal.bind(this);
