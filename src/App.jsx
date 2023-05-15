@@ -6,6 +6,7 @@ import RegisterPage from './pages/RegisterPage';
 import ShowcasePage from './pages/ShowcasePage';
 import SearchPeoplePage from './pages/SearchPeoplePage';
 import ProfilePage from './pages/ProfilePage';
+import userStore from './store/userStore';
 
 function App() {
   return (
@@ -15,21 +16,21 @@ function App() {
         <Route path="/" element={<ShowcasePage />} />
         {/* Protected pages */}
         <Route
-          path="/profile"
+          path="/user"
         >
           <Route path=":userId" element={(<Protect><ProfilePage /></Protect>)} />
-          <Route path="/profile/edit" element={<>Update profile page</>} />
+          <Route path="/user/edit" element={<>Update profile page</>} />
         </Route>
         <Route path="/search/user" element={<Protect><SearchPeoplePage /></Protect>} />
         <Route path="/create-post" element={<Protect>Create post page</Protect>} />
         {/* Guest pages */}
         <Route
           path="/sign-in"
-          element={<Protect guestOnly redirectTo="/profile"><LoginPage /></Protect>}
+          element={<Protect guestOnly redirectTo={`/user/${userStore.user?.id}`}><LoginPage /></Protect>}
         />
         <Route
           path="/sign-up"
-          element={<Protect guestOnly redirectTo="/profile"><RegisterPage /></Protect>}
+          element={<Protect guestOnly redirectTo={`/user/${userStore.user?.id}`}><RegisterPage /></Protect>}
         />
         {/* Main page */}
         <Route

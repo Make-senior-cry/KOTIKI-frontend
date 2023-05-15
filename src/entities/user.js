@@ -22,7 +22,7 @@ export default class User {
   }
 
   get link() {
-    return `/profile/${this.id}`;
+    return `/user/${this.id}`;
   }
 }
 
