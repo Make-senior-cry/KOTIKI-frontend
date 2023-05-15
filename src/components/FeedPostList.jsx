@@ -20,8 +20,8 @@ function FeedPostList({ page, navigateNextPage, navigatePrevPage }) {
       posts={postsStore.posts}
       hasNextPage={postsStore.hasNextPage}
       hasPrevPage={postsStore.hasPrevPage}
-      onReport={postsStore.onReport}
-      onLike={postsStore.onLike}
+      onReport={postsStore.reportPost}
+      onLike={postsStore.likePost}
       onNext={onNext}
       onPrev={onPrev}
       page={page}
