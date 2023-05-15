@@ -41,7 +41,7 @@ class PostsStore {
     try {
       const likesCount = await API.likePost(postId);
       runInAction(() => {
-        this.updatePostById(postId, { likesCount });
+        this.updatePostLocallyById(postId, { likesCount });
       });
     } catch (e) {
       console.error(e);
@@ -52,7 +52,7 @@ class PostsStore {
     try {
       const reportsCount = await API.reportPost(postId);
       runInAction(() => {
-        this.updatePostById(postId, { reportsCount });
+        this.updatePostLocallyById(postId, { reportsCount });
       });
     } catch (e) {
       console.error(e);
