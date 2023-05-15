@@ -4,8 +4,6 @@ import Pagination from '../entities/pagination';
 import config from '../config/config';
 
 const getPosts = (userId, skip = 0, limit = 10) => {
-  let foundPosts;
-  let pagination;
   if (config.FAKE_POSTS) {
     const postExample = new PostRecord({
       id: 1,
@@ -29,44 +27,42 @@ const getPosts = (userId, skip = 0, limit = 10) => {
     });
     const postExample2 = JSON.parse(JSON.stringify(postExample));
     postExample2.id = 2;
-    foundPosts = [postExample, postExample2];
-    pagination = new Pagination({
+    const foundPosts = [postExample, postExample2];
+    return new Pagination({
       dataList: foundPosts,
       hasPrev: false,
       hasNext: false,
       skip,
       limit,
     });
-  } else {
-    httpClient
-      .get('/post', {
-        params: {
-          user_id: userId,
-          skip,
-          limit,
-        },
-      })
-      .then((response) => {
-        const {
-          posts, author, hasPrev, hasNext, skip, limit,
-        } = response.data;
-
-        foundPosts = posts.map((postData) => {
-          const post = new PostRecord(postData);
-          post.author = author;
-          return post;
-        });
-        pagination = new Pagination({
-          dataList: foundPosts,
-          hasPrev,
-          hasNext,
-          skip,
-          limit,
-        });
-      });
   }
+  return httpClient
+    .get('/post', {
+      params: {
+        user_id: userId,
+        skip,
+        limit,
+      },
+    })
+    .then((response) => {
+      const {
+        posts, author, hasPrev, hasNext, skip, limit,
+      } = response.data;
 
-  return new Pagination(pagination);
+      const foundPosts = posts.map((postData) => {
+        const post = new PostRecord(postData);
+        post.author = author;
+        return post;
+      });
+
+      return new Pagination({
+        dataList: foundPosts,
+        hasPrev,
+        hasNext,
+        skip,
+        limit,
+      });
+    });
 };
 
 export default getPosts;
