@@ -11,7 +11,7 @@ const updateProfile = (name, description, imageFile = null) => {
   }
 
   return httpClient
-    .put('/update-profile', formData, {
+    .put('/user', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
