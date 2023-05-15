@@ -1,12 +1,10 @@
 import httpClient from './httpClient';
 import User from '../entities/user';
 
-const getUser = (userId) => httpClient
-  .get('/user', {
-    params: {
-      id: userId,
-    },
+const follow = (followingId) => httpClient
+  .post('/user/follow', {
+    followingId,
   })
   .then((response) => new User(response.data));
 
-export default getUser;
+export default follow;

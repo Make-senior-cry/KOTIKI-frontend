@@ -1,8 +1,10 @@
+import getImageSource from '../utils/getImageSource';
+
 export default class User {
   constructor({
     id,
     name,
-    imageURL,
+    imageUrl,
     description,
     email,
     role,
@@ -12,7 +14,7 @@ export default class User {
   }) {
     this.id = id;
     this.name = name;
-    this.imageURL = imageURL;
+    this.imageURL = imageUrl ? getImageSource(imageUrl) : imageUrl;
     this.description = description;
     this.email = email;
     this.role = role;

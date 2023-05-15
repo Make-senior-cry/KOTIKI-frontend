@@ -9,7 +9,7 @@ export default function PopUp({ show, children, onClose }) {
     <div className="popup can-close-popup" onClick={(e) => handleClosePopup(e)}>
       <div className="popup-inner">
         <button type="submit" className="closePopupButton can-close-popup" onClick={(e) => handleClosePopup(e)}>
-          <img className="can-close-popup" src="./public/Close.svg" alt="Close" />
+          <img className="can-close-popup" src="/Close.svg" alt="Close" />
         </button>
         {children}
       </div>

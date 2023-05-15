@@ -32,7 +32,7 @@ export default function PostPaginatedListPagination({
             onClick={onNext}
             disabled={!hasNextPage}
           >
-            Слелующая страница
+            Следующая страница
           </button>
         </li>
       </ul>

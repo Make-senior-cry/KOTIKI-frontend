@@ -3,14 +3,14 @@ import PostRecord from '../entities/postRecord';
 import Pagination from '../entities/pagination';
 
 const getFeed = (type, skip = 0, limit = 10) => httpClient
-  .get('/get-feed', { params: { type, skip, limit } })
+  .get('/feed', { params: { type, skip, limit } })
   .then((response) => {
     const {
-      dataList, hasPrev, hasNext, skip, limit,
+      posts, hasPrev, hasNext, skip, limit,
     } = response.data;
-    const posts = dataList.map((postData) => new PostRecord(postData));
+    const foundPosts = posts.map((postData) => new PostRecord(postData));
     return new Pagination({
-      dataList: posts,
+      dataList: foundPosts,
       hasPrev,
       hasNext,
       skip,

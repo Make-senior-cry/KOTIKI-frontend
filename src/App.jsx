@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ShowcasePage from './pages/ShowcasePage';
 import SearchPeoplePage from './pages/SearchPeoplePage';
+import ProfilePage from './pages/ProfilePage';
 import Modals from './components/Modals';
 
 function App() {
@@ -15,25 +16,21 @@ function App() {
         <Route path="/" element={<ShowcasePage />} />
         {/* Protected pages */}
         <Route
-          path="/profile"
-          element={(
-            <Protect>
-              Profile page
-            </Protect>
-          )}
+          path="/user"
         >
-          <Route path="/profile/edit" element={<>Update profile page</>} />
+          <Route path=":userId" element={(<Protect><ProfilePage /></Protect>)} />
+          <Route path="/user/edit" element={<>Update profile page</>} />
         </Route>
         <Route path="/search/user" element={<Protect><SearchPeoplePage /></Protect>} />
         <Route path="/create-post" element={<Protect>Create post page</Protect>} />
         {/* Guest pages */}
         <Route
           path="/sign-in"
-          element={<Protect guestOnly redirectTo="/profile"><LoginPage /></Protect>}
+          element={<Protect guestOnly redirectTo="/feed"><LoginPage /></Protect>}
         />
         <Route
           path="/sign-up"
-          element={<Protect guestOnly redirectTo="/profile"><RegisterPage /></Protect>}
+          element={<Protect guestOnly redirectTo="/feed"><RegisterPage /></Protect>}
         />
         {/* Main page */}
         <Route

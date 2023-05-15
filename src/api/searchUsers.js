@@ -6,6 +6,7 @@ const searchUsers = (name, skip, limit) => httpClient.get('/search/user', { para
   const {
     users, hasPrev, hasNext, skip, limit,
   } = response.data;
+
   const foundUsers = users.map((userData) => new User(userData));
 
   return new Pagination({

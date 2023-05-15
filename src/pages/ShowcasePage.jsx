@@ -9,6 +9,7 @@ import Navbar from '../components/Navbar/Navbar';
 import User from '../entities/user';
 import PostRecord from '../entities/postRecord';
 import Post from '../ui/Post/Post';
+import userStore from '../store/userStore';
 import PhotoUploader from '../ui/PhotoUploader';
 import PopUp from '../ui/PopUp';
 
@@ -44,7 +45,7 @@ export default function ShowcasePage() {
         showFollowButton
       />
       <Button variant="secondary">Open Popup</Button>
-      <PopUp show={popupShown} onClose={() => setPopupShown(false)}><img src="./public/paw.png" /></PopUp>
+      <PopUp show={popupShown} onClose={() => setPopupShown(false)}><img src="/paw.png" /></PopUp>
       <FeedSwitcher active={switcherState} options={['1', '2', '3']} onChange={setSwitcherState} />
       <PhotoUploader onFileAdded={console.log} isCircle appeal="Перетащите фото сюда" label="Загрузчик фото" backgroundImageURL="https://avatars.dzeninfra.ru/get-zen_doc/34175/pub_5cea2361585c2f00b5c9cb0b_5cea310a752e5b00b25b9c01/scale_1200" user={user} />
       <Avatar size="big" />
@@ -54,6 +55,12 @@ export default function ShowcasePage() {
       <RegistrationForm onCreateAccount={() => alert('AAAA')} />
       <Post post={postExample} />
       <Post post={{ banned: true }} />
+      <Button onClick={() => {
+        userStore.signOut().catch((e) => { console.error(e); });
+      }}
+      >
+        SIGN OUT
+      </Button>
     </>
   );
 }

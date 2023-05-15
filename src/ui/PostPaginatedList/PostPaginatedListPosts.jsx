@@ -2,9 +2,9 @@ import Post from '../Post/Post';
 
 export default function PostPaginatedListPosts({ posts, handleLike, handleReport }) {
   return (
-    <div className="row">
+    <div className="container">
       {posts.map((post) => (
-        <div className="col-4" key={post.id}>
+        <div className="mb-4" key={post.id}>
           <Post
             post={post}
             onLike={handleLike}

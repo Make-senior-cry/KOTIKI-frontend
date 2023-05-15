@@ -1,3 +1,5 @@
+import getImageSource from '../utils/getImageSource';
+
 export default class PostRecord {
   constructor({
     id,
@@ -11,7 +13,7 @@ export default class PostRecord {
   }) {
     this.id = id;
     this.text = text;
-    this.imageURL = imageURL;
+    this.imageURL = imageURL ? getImageSource(imageURL) : imageURL;
     this.createdAt = createdAt;
     this.banned = banned;
     this.likesCount = likesCount;

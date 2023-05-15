@@ -1,19 +1,8 @@
 import { observer } from 'mobx-react-lite';
-import { useEffect } from 'react';
 import PostPaginatedList from '../ui/PostPaginatedList/PostPaginatedList';
 import postsStore from '../store/postsStore';
-import usePaginationParams from '../hooks/usePaginationParams';
 
-function FeedPostList() {
-  const {
-    skip, limit, navigateNextPage, navigatePrevPage,
-  } = usePaginationParams();
-  const page = skip / limit + 1;
-
-  useEffect(() => {
-    postsStore.fetchFeed(skip, limit);
-  }, [skip, limit]);
-
+function FeedPostList({ page, navigateNextPage, navigatePrevPage }) {
   function onNext() {
     if (postsStore.hasNextPage) {
       navigateNextPage();
@@ -31,8 +20,8 @@ function FeedPostList() {
       posts={postsStore.posts}
       hasNextPage={postsStore.hasNextPage}
       hasPrevPage={postsStore.hasPrevPage}
-      onReport={postsStore.onReport}
-      onLike={postsStore.onLike}
+      onReport={postsStore.reportPost}
+      onLike={postsStore.likePost}
       onNext={onNext}
       onPrev={onPrev}
       page={page}

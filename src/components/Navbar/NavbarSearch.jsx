@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Input from '../../ui/Input';
 import useSearchValue from '../../hooks/useSearchValue';
@@ -7,6 +7,10 @@ export default function NavbarSearch() {
   const navigate = useNavigate();
   const [searchValue] = useSearchValue();
   const [currentSearchValue, setCurrentSearchValue] = useState(searchValue);
+
+  useEffect(() => {
+    setCurrentSearchValue(searchValue);
+  }, [searchValue]);
 
   function onKeyDownEnter(event) {
     if (event.key === 'Enter') {
