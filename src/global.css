@@ -50,15 +50,16 @@ html {
   justify-content: center;
   align-items: center;
   z-index: 10;
-
+  padding: 10px;
 }
 
 .popup-inner{
   position: relative;
   padding: 40px;
-  width: 40%;
-  height: 70%;
-  max-width: 600 px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 100%;
+  overflow-y: auto;
   background-color: #FFF;
   z-index: 11;
   border-radius: 10px;

@@ -6,6 +6,7 @@ import RegisterPage from './pages/RegisterPage';
 import ShowcasePage from './pages/ShowcasePage';
 import SearchPeoplePage from './pages/SearchPeoplePage';
 import ProfilePage from './pages/ProfilePage';
+import Modals from './components/Modals';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           element={(<Protect><FeedPage /></Protect>)}
         />
       </Routes>
+      <Modals />
     </BrowserRouter>
   );
 }
