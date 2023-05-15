@@ -1,5 +1,6 @@
 import httpClient from './httpClient';
 import User from '../entities/user';
+import getImageSource from '../utils/getImageSource';
 
 const getUser = (userId) => httpClient
   .get('/user', {
@@ -7,6 +8,10 @@ const getUser = (userId) => httpClient
       id: userId,
     },
   })
-  .then((response) => new User(response.data));
+  .then((response) => {
+    const user = response.data;
+    user.imageURL = getImageSource(response.data.imageURL);
+    return new User(response.data);
+  });
 
 export default getUser;
