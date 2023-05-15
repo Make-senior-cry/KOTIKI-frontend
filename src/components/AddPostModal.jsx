@@ -10,7 +10,7 @@ function AddPostModal({ onClose }) {
 
   function handleSubmit({ imageFile, text }) {
     console.log(imageFile);
-    API.createPost(imageFile, text)
+    API.createPost(text, imageFile)
       .then(() => {
         onClose();
         navigate(userStore.user.link);
