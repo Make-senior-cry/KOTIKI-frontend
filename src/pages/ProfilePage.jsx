@@ -7,6 +7,7 @@ import usePaginationParams from '../hooks/usePaginationParams';
 import postsStore from '../store/postsStore';
 import FeedPostList from '../components/FeedPostList';
 import * as API from '../api';
+import modalStore from '../store/modalStore';
 
 function ProfilePage() {
   const [errorMessage, setErrorMessage] = useState('');
@@ -67,7 +68,7 @@ function ProfilePage() {
   }, [skip, limit]);
 
   function handleEditProfile() {
-    console.log('EDIT PROFILE');
+    modalStore.showModal(modalStore.EDIT_USER_MODAL);
   }
 
   function follow() {
