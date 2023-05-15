@@ -29,7 +29,7 @@ export default function Navbar() {
         <div className={cn('collapse navbar-collapse', mobileNavbarShown && 'show')} id="navbarText">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <ReactRouterLink className="nav-link link" to="/feed">Новости</ReactRouterLink>
+              <ReactRouterLink className="nav-link link" to="/">Новости</ReactRouterLink>
             </li>
             <li className="nav-item">
               <button
