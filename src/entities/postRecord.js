@@ -1,4 +1,5 @@
 import getImageSource from '../utils/getImageSource';
+import User from './user';
 
 export default class PostRecord {
   constructor({
@@ -18,7 +19,7 @@ export default class PostRecord {
     this.banned = banned;
     this.likesCount = likesCount;
     this.reportsCount = reportsCount;
-    this.author = author;
+    this.author = new User(author);
   }
 
   get formattedDate() {
