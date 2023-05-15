@@ -3,10 +3,6 @@ import User from '../entities/user';
 
 const getAuthorizedUser = () => httpClient
   .get('/user')
-  .then((response) => {
-    const userData = response.data;
-    userData.imageURL = response.data.imageUrl;
-    return new User(userData);
-  });
+  .then((response) => new User(response.data));
 
 export default getAuthorizedUser;

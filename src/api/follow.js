@@ -5,10 +5,6 @@ const follow = (followingId) => httpClient
   .post('/user/follow', {
     followingId,
   })
-  .then((response) => {
-    const userData = response.data;
-    userData.imageURL = response.data.imageUrl;
-    return new User(userData);
-  });
+  .then((response) => new User(response.data));
 
 export default follow;
