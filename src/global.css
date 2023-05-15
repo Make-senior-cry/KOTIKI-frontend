@@ -38,3 +38,37 @@ html {
   background-color: white;
   opacity: 50%;
 }
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+
+}
+
+.popup-inner{
+  position: relative;
+  padding: 10px;
+  width: 40%;
+  height: 70%;
+  max-width: 600 px;
+  background-color: #FFF;
+  z-index: 11;
+  border-radius: 10px;
+}
+
+.popup-inner .closePopupButton{
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: none;
+  background-color: #FFF;
+  z-index: 12;
+}
