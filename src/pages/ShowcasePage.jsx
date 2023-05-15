@@ -9,6 +9,7 @@ import Navbar from '../components/Navbar/Navbar';
 import User from '../entities/user';
 import PostRecord from '../entities/postRecord';
 import Post from '../ui/Post/Post';
+import userStore from '../store/userStore';
 
 export default function ShowcasePage() {
   const user = new User({
@@ -48,6 +49,12 @@ export default function ShowcasePage() {
       <RegistrationForm onCreateAccount={() => alert('AAAA')} />
       <Post post={postExample} />
       <Post post={{ banned: true }} />
+      <Button onClick={() => {
+        userStore.signOut().catch((e) => { console.error(e); });
+      }}
+      >
+        SIGN OUT
+      </Button>
     </>
   );
 }
