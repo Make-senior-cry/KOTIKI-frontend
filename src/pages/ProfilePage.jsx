@@ -46,8 +46,8 @@ function ProfilePage() {
       });
   }
 
-  const isCorrectUserRendered = parseInt(user.id, 10) !== parseInt(userId, 10);
   // Определение пользователя, которого надо отрисовать
+  const isCorrectUserRendered = parseInt(user.id, 10) !== parseInt(userId, 10);
   useEffect(() => {
     if (isCorrectUserRendered) {
       if (isCurrentUser) setUser(userStore.user);
@@ -73,7 +73,7 @@ function ProfilePage() {
   function follow() {
     API.follow(userId)
       .then((u) => {
-        setIsFollower(!isFollower);
+        updateIsFollower();
         setUser(u);
       })
       .catch((error) => {
