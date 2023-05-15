@@ -55,7 +55,7 @@ html {
 
 .popup-inner{
   position: relative;
-  padding: 10px;
+  padding: 40px;
   width: 40%;
   height: 70%;
   max-width: 600 px;
@@ -66,8 +66,9 @@ html {
 
 .popup-inner .closePopupButton{
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 10px;
+  right: 10px;
+  margin: 10px;
   border: none;
   background-color: #FFF;
   z-index: 12;
