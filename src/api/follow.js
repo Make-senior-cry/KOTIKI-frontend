@@ -1,9 +1,15 @@
 import httpClient from './httpClient';
+import getImageSource from '../utils/getImageSource';
+import User from '../entities/user';
 
 const follow = (followingId) => httpClient
   .post('/user/follow', {
     followingId,
   })
-  .then((response) => response.data);
+  .then((response) => {
+    const userData = response.data;
+    userData.imageURL = getImageSource(response.data.imageUrl);
+    return new User(userData);
+  });
 
 export default follow;
