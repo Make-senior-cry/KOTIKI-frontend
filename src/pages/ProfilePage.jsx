@@ -47,16 +47,16 @@ function ProfilePage() {
   }
 
   // Определение пользователя, которого надо отрисовать
-  const isCorrectUserRendered = parseInt(user.id, 10) !== parseInt(userId, 10);
+  const incorrectUserRendered = parseInt(user.id, 10) !== parseInt(userId, 10);
   useEffect(() => {
-    if (isCorrectUserRendered) {
+    if (incorrectUserRendered) {
       if (isCurrentUser) setUser(userStore.user);
       else {
         setAlien();
         updateIsFollower();
       }
     }
-  });
+  }, [incorrectUserRendered]);
 
   // Загрузка постов пользователя
   useEffect(() => {
