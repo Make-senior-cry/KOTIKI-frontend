@@ -4,8 +4,6 @@ const follow = (followingId) => httpClient
   .post('/user/follow', {
     followingId,
   })
-  .then((response) => {
-    console.log(response);
-  });
+  .then((response) => response.data);
 
 export default follow;

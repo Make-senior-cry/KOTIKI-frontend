@@ -39,10 +39,10 @@ function ProfilePage() {
   function isFollow() {
     API.isFollower(userId)
       .then((isFollow) => {
-        setIsFollower(Boolean(isFollow));
+        setIsFollower(isFollow);
       })
       .catch((error) => {
-        console.log(error.message);
+        alert(error.message);
       });
   }
 
@@ -71,8 +71,8 @@ function ProfilePage() {
 
   function follow() {
     API.follow(userId)
-      .then(() => {
-        setIsFollower(!isFollower);
+      .then((u) => {
+        setUser(u);
       })
       .catch((error) => {
         alert(error.message);

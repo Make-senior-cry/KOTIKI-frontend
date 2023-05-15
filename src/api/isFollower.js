@@ -6,6 +6,6 @@ const isFollower = (id) => httpClient
       id,
     },
   })
-  .then((response) => response.data);
+  .then((response) => response.data.isFollower);
 
 export default isFollower;
