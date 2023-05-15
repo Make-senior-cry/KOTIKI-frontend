@@ -3,17 +3,17 @@ import { useState } from 'react';
 import cn from 'classnames';
 import NavbarSearch from './NavbarSearch';
 import NavbarUser from './NavbarUser';
-
-const NAVBAR_LINKS = {
-  Новости: '/feed',
-  'Опубликовать пост': '/create-post',
-};
+import modalStore from '../../store/modalStore';
 
 export default function Navbar() {
   const [mobileNavbarShown, setMobileNavbarShown] = useState(false);
 
   function toggleMobileNavbarShown() {
     setMobileNavbarShown((prevValue) => !prevValue);
+  }
+
+  function handleShowAddPostModal() {
+    modalStore.showModal(modalStore.ADD_POST_MODAL);
   }
 
   return (
@@ -28,11 +28,18 @@ export default function Navbar() {
         </button>
         <div className={cn('collapse navbar-collapse', mobileNavbarShown && 'show')} id="navbarText">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            {Object.entries(NAVBAR_LINKS).map(([name, link]) => (
-              <li className="nav-item" key={name}>
-                <ReactRouterLink className="nav-link link" to={link}>{name}</ReactRouterLink>
-              </li>
-            ))}
+            <li className="nav-item">
+              <ReactRouterLink className="nav-link link" to="/feed">Новости</ReactRouterLink>
+            </li>
+            <li className="nav-item">
+              <button
+                onClick={handleShowAddPostModal}
+                className="nav-link link bg-transparent border-0"
+                type="button"
+              >
+                Опубликовать пост
+              </button>
+            </li>
           </ul>
           <div className="d-flex align-items-center gap-2">
             <NavbarSearch />
