@@ -3,7 +3,6 @@ import Protect from './components/Protect';
 import FeedPage from './pages/FeedPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
-import ShowcasePage from './pages/ShowcasePage';
 import SearchPeoplePage from './pages/SearchPeoplePage';
 import ProfilePage from './pages/ProfilePage';
 import Modals from './components/Modals';
@@ -12,8 +11,6 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Showcase page */}
-        <Route path="/" element={<ShowcasePage />} />
         {/* Protected pages */}
         <Route
           path="/user"
@@ -34,8 +31,8 @@ function App() {
         />
         {/* Main page */}
         <Route
-          path="/feed"
-          element={(<Protect><FeedPage /></Protect>)}
+          path="/"
+          element={<Protect><FeedPage /></Protect>}
         />
       </Routes>
       <Modals />
