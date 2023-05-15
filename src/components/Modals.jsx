@@ -3,7 +3,6 @@ import modalStore from '../store/modalStore';
 import AddPostModal from './AddPostModal';
 
 function Modals() {
-  console.log(modalStore.currentModal);
   switch (modalStore.currentModal) {
     case modalStore.ADD_POST_MODAL:
       return <AddPostModal onClose={modalStore.hideModal} />;
