@@ -37,7 +37,7 @@ function ProfilePage() {
   }
 
   function updateIsFollower() {
-    API.isFollower(userId)
+    API.isFollowedByCurrentUser(userId)
       .then((isFollow) => {
         setIsFollower(isFollow);
       })
@@ -46,9 +46,10 @@ function ProfilePage() {
       });
   }
 
+  const isCorrectUserRendered = parseInt(user.id, 10) !== parseInt(userId, 10);
   // Определение пользователя, которого надо отрисовать
   useEffect(() => {
-    if (parseInt(user.id, 10) !== parseInt(userId, 10)) {
+    if (isCorrectUserRendered) {
       if (isCurrentUser) setUser(userStore.user);
       else {
         setAlien();

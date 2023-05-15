@@ -1,6 +1,6 @@
 import httpClient from './httpClient';
 
-const isFollower = (id) => httpClient
+const isFollowedByCurrentUser = (id) => httpClient
   .get('/user/following', {
     params: {
       id,
@@ -8,4 +8,4 @@ const isFollower = (id) => httpClient
   })
   .then((response) => response.data.isFollower);
 
-export default isFollower;
+export default isFollowedByCurrentUser;

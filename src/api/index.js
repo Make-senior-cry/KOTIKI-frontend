@@ -5,7 +5,7 @@ export { default as getPosts } from './getPosts';
 export { default as getAuthorizedUser } from './getAuthorizedUser';
 export { default as getUser } from './getUser';
 export { default as follow } from './follow';
-export { default as isFollower } from './isFollower';
+export { default as isFollowedByCurrentUser } from './isFollowedByCurrentUser';
 export { default as likePost } from './likePost';
 export { default as reportPost } from './reportPost';
 export { default as searchUsers } from './searchUsers';
