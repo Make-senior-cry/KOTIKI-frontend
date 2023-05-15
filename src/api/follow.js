@@ -1,5 +1,4 @@
 import httpClient from './httpClient';
-import getImageSource from '../utils/getImageSource';
 import User from '../entities/user';
 
 const follow = (followingId) => httpClient
@@ -8,7 +7,7 @@ const follow = (followingId) => httpClient
   })
   .then((response) => {
     const userData = response.data;
-    userData.imageURL = getImageSource(response.data.imageUrl);
+    userData.imageURL = response.data.imageUrl;
     return new User(userData);
   });
 
