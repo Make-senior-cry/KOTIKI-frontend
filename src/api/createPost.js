@@ -5,7 +5,7 @@ const createPost = (text, imageFile = null) => {
   formData.append('text', text);
 
   if (imageFile) {
-    formData.append(imageFile);
+    formData.append('imageFile', imageFile);
   }
 
   return httpClient.post('/create-post', formData, {
