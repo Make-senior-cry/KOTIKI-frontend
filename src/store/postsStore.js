@@ -25,14 +25,14 @@ class PostsStore {
   async fetchFeed(skip, limit) {
     const postsPagination = await API.getFeed(this.type, skip, limit);
     runInAction(() => {
-      this.setDataFromPostPagintaionDTO(postsPagination);
+      this.setDataFromPostPaginationDTO(postsPagination);
     });
   }
 
   async fetchUserPosts(userId, skip, limit) {
     const postsPagination = await API.getPosts(userId, skip, limit);
     runInAction(() => {
-      this.setDataFromPostPagintaionDTO(postsPagination);
+      this.setDataFromPostPaginationDTO(postsPagination);
     });
   }
 
@@ -71,7 +71,7 @@ class PostsStore {
     });
   }
 
-  setDataFromPostPagintaionDTO(postsPagination) {
+  setDataFromPostPaginationDTO(postsPagination) {
     this.posts = postsPagination.dataList;
     this.hasNextPage = postsPagination.hasNext;
     this.hasPrevPage = postsPagination.hasPrev;
