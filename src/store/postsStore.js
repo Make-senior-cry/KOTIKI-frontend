@@ -1,6 +1,5 @@
 import { makeAutoObservable, runInAction } from 'mobx';
 import * as API from '../api';
-import Post from '../ui/Post/Post';
 
 export const feedType = {
   FOLLOWING: 'FOLLOWING',
@@ -70,7 +69,7 @@ class PostsStore {
   }
 
   setDataFromPostPagintaionDTO(postsPagination) {
-    this.posts = postsPagination.dataList.map((post) => new Post(post));
+    this.posts = postsPagination.dataList;
     this.hasNextPage = postsPagination.hasNext;
     this.hasPrevPage = postsPagination.hasPrev;
   }

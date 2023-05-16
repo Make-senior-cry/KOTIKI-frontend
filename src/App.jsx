@@ -23,11 +23,11 @@ function App() {
         {/* Guest pages */}
         <Route
           path="/sign-in"
-          element={<Protect guestOnly redirectTo="/feed"><LoginPage /></Protect>}
+          element={<Protect guestOnly redirectTo="/"><LoginPage /></Protect>}
         />
         <Route
           path="/sign-up"
-          element={<Protect guestOnly redirectTo="/feed"><RegisterPage /></Protect>}
+          element={<Protect guestOnly redirectTo="/"><RegisterPage /></Protect>}
         />
         {/* Main page */}
         <Route
