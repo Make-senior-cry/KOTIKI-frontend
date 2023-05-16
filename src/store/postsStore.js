@@ -17,6 +17,7 @@ class PostsStore {
 
   constructor() {
     makeAutoObservable(this);
+    this.likePost = this.likePost.bind(this);
   }
 
   async fetchFeed(skip, limit) {
@@ -39,7 +40,7 @@ class PostsStore {
 
   async likePost(postId) {
     try {
-      const likesCount = await API.likePost(postId);
+      const { likesCount } = await API.likePost(postId);
       runInAction(() => {
         this.updatePostLocallyById(postId, { likesCount });
       });
@@ -50,7 +51,7 @@ class PostsStore {
 
   async reportPost(postId) {
     try {
-      const reportsCount = await API.reportPost(postId);
+      const { reportsCount } = await API.reportPost(postId);
       runInAction(() => {
         this.updatePostLocallyById(postId, { reportsCount });
       });
@@ -59,13 +60,15 @@ class PostsStore {
     }
   }
 
-  async updatePostLocallyById(postId, newFields) {
+  updatePostLocallyById(postId, newFields) {
+    console.log(this.posts);
     this.posts = this.posts.map((post) => {
       if (post.id === postId) {
         return { ...post, ...newFields };
       }
       return post;
     });
+    console.log(this.posts);
   }
 
   setDataFromPostPagintaionDTO(postsPagination) {
