@@ -41,7 +41,12 @@ export default function PhotoUploader({
     <div onDragEnter={handleDrag} className="photoUploader">
       {dragActive && <div className="dropArea" onDrop={handleDrop} onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} />}
       {hasLabel && <p>{label}</p>}
-      <label style={{ backgroundImage: `url("${backgroundImageURL}")`, backgroundSize: 'contain' }} className={inputFormClass}>
+      <label
+        style={{
+          backgroundImage: `url("${backgroundImageURL}")`, backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat',
+        }}
+        className={inputFormClass}
+      >
         <div className="fileName">{fileName}</div>
         <input className="d-none" ref={inputRef} type="file" onChange={onChangeHandler} accept="image/*" />
       </label>
