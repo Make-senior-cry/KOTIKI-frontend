@@ -2,6 +2,7 @@ import { Link as ReactRouterLink } from 'react-router-dom';
 import { useState } from 'react';
 import cn from 'classnames';
 import { observer } from 'mobx-react-lite';
+import { toast } from 'react-toastify';
 import NavbarSearch from './NavbarSearch';
 import NavbarUser from './NavbarUser';
 import modalStore from '../../store/modalStore';
@@ -19,7 +20,7 @@ function Navbar() {
   }
 
   function handleSignOut() {
-    userStore.signOut().catch((e) => { console.error(e); });
+    userStore.signOut().catch((e) => { toast.error(e.message); });
   }
 
   return (

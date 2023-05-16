@@ -1,4 +1,5 @@
 import { makeAutoObservable, runInAction } from 'mobx';
+import { toast } from 'react-toastify';
 import * as API from '../api';
 import User, { fakeUser } from '../entities/user';
 import config from '../config/config';
@@ -40,7 +41,7 @@ class UserStore {
         const user = await API.getAuthorizedUser();
         runInAction(() => { this.user = user; });
       } catch (e) {
-        console.error(e);
+        toast.error(e.message);
       }
     }
   }

@@ -1,4 +1,5 @@
 import { observer } from 'mobx-react-lite';
+import { toast } from 'react-toastify';
 import UserForm from '../ui/UserForm';
 import updateProfile from '../api/updateProfile';
 import userStore from '../store/userStore';
@@ -8,7 +9,7 @@ function UpdateProfileModal({ onClose }) {
   function handleSubmit({ imageFile, name, description }) {
     updateProfile(name, description, imageFile)
       .then(() => globalThis.location.reload())
-      .catch((e) => alert(e.message));
+      .catch((e) => toast.error(e.message));
   }
 
   return (

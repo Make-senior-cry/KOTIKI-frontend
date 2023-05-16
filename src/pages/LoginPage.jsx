@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 import AuthLayout from '../ui/AuthLayout';
 import LoginForm from '../components/LoginForm';
 import userStore from '../store/userStore';
@@ -11,7 +12,7 @@ export default function LoginPage() {
     .catch((error) => setErrorMessage(error.message));
 
   const handleLoginWithGoogle = () => {
-    alert('Не поддерживается');
+    toast.info('Не поддерживается');
   };
 
   return (

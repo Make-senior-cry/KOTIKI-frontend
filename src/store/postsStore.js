@@ -1,4 +1,5 @@
 import { makeAutoObservable, runInAction } from 'mobx';
+import { toast } from 'react-toastify';
 import * as API from '../api';
 
 export const feedType = {
@@ -45,7 +46,8 @@ class PostsStore {
         this.updatePostLocallyById(postId, { likesCount });
       });
     } catch (e) {
-      console.error(e);
+      console.log(e.message);
+      toast.error(e.message);
     }
   }
 
@@ -56,7 +58,7 @@ class PostsStore {
         this.updatePostLocallyById(postId, { reportsCount });
       });
     } catch (e) {
-      console.error(e);
+      toast.error(e.message);
     }
   }
 

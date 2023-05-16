@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import DefaultLayout from '../ui/DefaultLayout';
 import ProfileHeader from '../ui/ProfileHeader';
 import userStore from '../store/userStore';
@@ -43,7 +44,7 @@ function ProfilePage() {
         setIsFollower(isFollow);
       })
       .catch((error) => {
-        alert(error.message);
+        toast.error(error.message);
       });
   }
 
@@ -78,7 +79,7 @@ function ProfilePage() {
         setUser(u);
       })
       .catch((error) => {
-        alert(error.message);
+        toast.error(error.message);
       });
   }
 
