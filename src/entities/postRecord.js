@@ -11,6 +11,7 @@ export default class PostRecord {
     likesCount,
     reportsCount,
     author,
+    liked,
   }) {
     this.id = id;
     this.text = text;
@@ -20,6 +21,7 @@ export default class PostRecord {
     this.likesCount = likesCount;
     this.reportsCount = reportsCount;
     this.author = new User(author);
+    this.liked = liked;
   }
 
   get formattedDate() {

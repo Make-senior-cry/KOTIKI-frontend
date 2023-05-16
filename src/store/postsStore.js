@@ -42,9 +42,9 @@ class PostsStore {
 
   async likePost(postId) {
     try {
-      const { likesCount } = await API.likePost(postId);
+      const { likesCount, liked } = await API.likePost(postId);
       runInAction(() => {
-        this.updatePostLocallyById(postId, { likesCount });
+        this.updatePostLocallyById(postId, { likesCount, liked });
       });
     } catch (e) {
       toast.error(e.message);

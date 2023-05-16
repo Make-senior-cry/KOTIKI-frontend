@@ -22,6 +22,7 @@ function Post({ post, onLike, onReport }) {
       </div>
       <PostFooter
         likesCount={post.likesCount}
+        liked={post.liked}
         onLike={() => onLike(post.id)}
         onReport={() => onReport(post.id)}
       />
