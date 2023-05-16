@@ -50,11 +50,9 @@ const getPosts = (userId, skip = 0, limit = 10) => {
       } = response.data;
 
       const foundPosts = posts.map((postData) => {
-        const post = new PostRecord(postData);
-        post.author = author;
+        const post = new PostRecord({ ...postData, author });
         return post;
       });
-
       return new Pagination({
         dataList: foundPosts,
         hasPrev,
