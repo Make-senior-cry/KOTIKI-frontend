@@ -65,7 +65,7 @@ function ProfilePage() {
       .catch((error) => {
         setErrorMessage(error.message);
       });
-  }, [skip, limit]);
+  }, [skip, limit, userId]);
 
   function handleEditProfile() {
     modalStore.showModal(modalStore.EDIT_USER_MODAL);
