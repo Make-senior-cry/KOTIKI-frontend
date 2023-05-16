@@ -7,7 +7,6 @@ const httpClient = axios.create({
 });
 
 httpClient.interceptors.response.use((response) => {
-  console.log(response);
   if (response.status !== 200) {
     throw Error('Ошибка с запросом');
   }
