@@ -19,6 +19,7 @@ class PostsStore {
   constructor() {
     makeAutoObservable(this);
     this.likePost = this.likePost.bind(this);
+    this.reportPost = this.reportPost.bind(this);
   }
 
   async fetchFeed(skip, limit) {
@@ -46,7 +47,6 @@ class PostsStore {
         this.updatePostLocallyById(postId, { likesCount });
       });
     } catch (e) {
-      console.log(e.message);
       toast.error(e.message);
     }
   }
@@ -63,14 +63,12 @@ class PostsStore {
   }
 
   updatePostLocallyById(postId, newFields) {
-    console.log(this.posts);
     this.posts = this.posts.map((post) => {
       if (post.id === postId) {
         return { ...post, ...newFields };
       }
       return post;
     });
-    console.log(this.posts);
   }
 
   setDataFromPostPagintaionDTO(postsPagination) {

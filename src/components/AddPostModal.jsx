@@ -6,7 +6,6 @@ import * as API from '../api';
 
 function AddPostModal({ onClose }) {
   function handleSubmit({ imageFile, text }) {
-    console.log(imageFile);
     API.createPost(text, imageFile)
       .then(() => globalThis.location.reload())
       .catch((e) => toast.error(e.message));
