@@ -9,7 +9,7 @@ function Post({ post, onLike, onReport }) {
     return <BannedPost />;
   }
   return (
-    <div className={`${styles.post} card`}>
+    <div className={`${styles.post} card mx-auto`}>
       <div className="card-body">
         <PostTitle
           avatar={post.author.imageURL}
