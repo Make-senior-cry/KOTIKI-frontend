@@ -41,7 +41,7 @@ class UserStore {
         const user = await API.getAuthorizedUser();
         runInAction(() => { this.user = user; });
       } catch (e) {
-        toast.error(e.message);
+        if (e.code === 'ERR_NETWORK') toast.error(e.message);
       }
     }
   }
