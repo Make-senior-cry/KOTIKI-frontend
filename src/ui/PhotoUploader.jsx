@@ -7,7 +7,7 @@ export default function PhotoUploader({
   const [dragActive, setDragActive] = useState(false);
   const [fileName, setFileName] = useState(appeal);
   const hasLabel = !!label.trim();
-  const inputFormClass = `${isCircle ? 'uploaderPhotoCircle' : 'uploaderPhotoSquare'} photoUploaderLabel d-flex justify-content-center align-items-center`;
+  const inputFormClass = `${isCircle ? 'uploaderPhotoCircle' : 'uploaderPhotoSquare'} photoUploaderLabel d-flex justify-content-center align-items-center object-fit-cover border rounded`;
 
   const handleDrag = function (e) {
     e.preventDefault();
@@ -38,7 +38,7 @@ export default function PhotoUploader({
   }
 
   return (
-    <div onDragEnter={handleDrag} className="photoUploader">
+    <div onDragEnter={handleDrag} className="photoUploader d-flex flex-column justify-content-center align-items-center">
       {dragActive && <div className="dropArea" onDrop={handleDrop} onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} />}
       {hasLabel && <p>{label}</p>}
       <label
