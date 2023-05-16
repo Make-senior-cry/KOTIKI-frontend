@@ -15,6 +15,7 @@ function Post({ post, onLike, onReport }) {
           avatar={post.author.imageURL}
           authorName={post.author.name}
           createdAt={post.formattedDate}
+          authorLink={post.author.link}
         />
         <p className="card-text">{ post.text }</p>
         <PostImage imageUrl={post.imageURL} />
