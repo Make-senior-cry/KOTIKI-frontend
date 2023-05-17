@@ -14,8 +14,8 @@ export default function ProfileHeader({
           <Avatar size="big" src={user.imageUrl} />
         </div>
         <div className="col-2 align-content-cent">
-          <div className="fw-bold">{user.name}</div>
-          <div>{user.description}</div>
+          <div className="fw-bold text-break">{user.name}</div>
+          <div className="text-break">{user.description}</div>
         </div>
         <div className="col-4">
           <div className="row row-cols-3 pb-3">
