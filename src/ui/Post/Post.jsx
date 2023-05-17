@@ -12,7 +12,7 @@ function Post({ post, onLike, onReport }) {
     <div className={`${styles.post} card mx-auto`}>
       <div className="card-body">
         <PostTitle
-          avatar={post.author.imageURL}
+          avatar={post.author.imageUrl}
           authorName={post.author.name}
           createdAt={post.formattedDate}
           authorLink={post.author.link}
