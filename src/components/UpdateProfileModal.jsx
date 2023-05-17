@@ -16,7 +16,7 @@ function UpdateProfileModal({ onClose }) {
     <PopUp show onClose={onClose}>
       <UserForm
         onSubmit={handleSubmit}
-        defaultImageURL={userStore.user.imageURL}
+        defaultImageURL={userStore.user.imageUrl}
         defaultName={userStore.user.name}
         defaultDescription={userStore.user.description}
       />

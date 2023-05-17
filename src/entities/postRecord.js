@@ -15,7 +15,7 @@ export default class PostRecord {
   }) {
     this.id = id;
     this.text = text;
-    this.imageURL = imageUrl ? getImageSource(imageUrl) : imageUrl;
+    this.imageUrl = imageUrl ? getImageSource(imageUrl) : imageUrl;
     this.createdAt = createdAt;
     this.banned = banned;
     this.likesCount = likesCount;

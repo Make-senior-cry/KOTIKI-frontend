@@ -11,7 +11,7 @@ export default function ProfileHeader({
     <div className="container-lg p-2">
       <div className="row justify-content-md-center align-items-center row-cols-3">
         <div className="col-auto">
-          <Avatar size="big" src={user.imageURL} />
+          <Avatar size="big" src={user.imageUrl} />
         </div>
         <div className="col-2 align-content-cent">
           <div className="fw-bold">{user.name}</div>

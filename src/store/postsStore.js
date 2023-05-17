@@ -1,6 +1,7 @@
 import { makeAutoObservable, runInAction } from 'mobx';
 import { toast } from 'react-toastify';
 import * as API from '../api';
+import PostRecord from '../entities/postRecord';
 
 export const feedType = {
   FOLLOWING: 'FOLLOWING',
@@ -65,7 +66,7 @@ class PostsStore {
   updatePostLocallyById(postId, newFields) {
     this.posts = this.posts.map((post) => {
       if (post.id === postId) {
-        return { ...post, ...newFields };
+        return new PostRecord({ ...post, ...newFields });
       }
       return post;
     });

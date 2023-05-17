@@ -14,7 +14,7 @@ export default class User {
   }) {
     this.id = id;
     this.name = name;
-    this.imageURL = imageUrl ? getImageSource(imageUrl) : imageUrl;
+    this.imageUrl = imageUrl ? getImageSource(imageUrl) : imageUrl;
     this.description = description;
     this.email = email;
     this.role = role;

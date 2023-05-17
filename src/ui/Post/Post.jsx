@@ -18,7 +18,7 @@ function Post({ post, onLike, onReport }) {
           authorLink={post.author.link}
         />
         <p className="card-text">{ post.text }</p>
-        <PostImage imageUrl={post.imageURL} />
+        <PostImage imageUrl={post.imageUrl} />
       </div>
       <PostFooter
         likesCount={post.likesCount}
