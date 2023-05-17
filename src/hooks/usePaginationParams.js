@@ -8,7 +8,7 @@ const parseIntOrDefault = (stringValue, defaultValue) => {
 export default function usePaginationParams() {
   const [params, setParams] = useSearchParams();
   const skip = parseIntOrDefault(params.get('skip'), 0);
-  const limit = parseIntOrDefault(params.get('limit'), 1);
+  const limit = parseIntOrDefault(params.get('limit'), 5);
 
   function navigateNextPage() {
     const updatedParams = new URLSearchParams(params);

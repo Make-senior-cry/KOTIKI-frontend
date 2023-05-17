@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import Protect from './components/Protect';
 import FeedPage from './pages/FeedPage';
 import LoginPage from './pages/LoginPage';
@@ -6,6 +7,7 @@ import RegisterPage from './pages/RegisterPage';
 import SearchPeoplePage from './pages/SearchPeoplePage';
 import ProfilePage from './pages/ProfilePage';
 import Modals from './components/Modals';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -23,11 +25,11 @@ function App() {
         {/* Guest pages */}
         <Route
           path="/sign-in"
-          element={<Protect guestOnly redirectTo="/feed"><LoginPage /></Protect>}
+          element={<Protect guestOnly redirectTo="/"><LoginPage /></Protect>}
         />
         <Route
           path="/sign-up"
-          element={<Protect guestOnly redirectTo="/feed"><RegisterPage /></Protect>}
+          element={<Protect guestOnly redirectTo="/"><RegisterPage /></Protect>}
         />
         {/* Main page */}
         <Route
@@ -36,6 +38,7 @@ function App() {
         />
       </Routes>
       <Modals />
+      <ToastContainer />
     </BrowserRouter>
   );
 }

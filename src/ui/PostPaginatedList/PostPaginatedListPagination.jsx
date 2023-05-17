@@ -4,7 +4,7 @@ export default function PostPaginatedListPagination({
   hasPrevPage, hasNextPage, onPrev, onNext, page,
 }) {
   return (
-    <nav>
+    <nav className="d-flex justify-content-center">
       <ul className="pagination">
         <li className={cn('page-item', !hasPrevPage && 'disabled')}>
           <button

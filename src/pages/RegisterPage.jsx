@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 import AuthLayout from '../ui/AuthLayout';
 import RegistrationForm from '../components/RegistrationForm';
 import userStore from '../store/userStore';
@@ -11,7 +12,7 @@ export default function RegisterPage() {
     .catch((error) => setErrorMessage(error.message));
 
   const handleCreateWithGoogle = () => {
-    alert('Не поддерживается');
+    toast.info('Не поддерживается');
   };
 
   return (

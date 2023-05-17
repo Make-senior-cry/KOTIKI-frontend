@@ -6,4 +6,11 @@ const httpClient = axios.create({
   withCredentials: true,
 });
 
+httpClient.interceptors.response.use((response) => {
+  if (response.status !== 200) {
+    throw Error('Ошибка с запросом');
+  }
+  return response;
+}, (error) => Promise.reject(error));
+
 export default httpClient;

@@ -1,28 +1,31 @@
 import getImageSource from '../utils/getImageSource';
+import User from './user';
 
 export default class PostRecord {
   constructor({
     id,
     text,
-    imageURL,
+    imageUrl,
     createdAt,
     banned,
     likesCount,
     reportsCount,
     author,
+    liked,
   }) {
     this.id = id;
     this.text = text;
-    this.imageURL = imageURL ? getImageSource(imageURL) : imageURL;
+    this.imageUrl = imageUrl ? getImageSource(imageUrl) : imageUrl;
     this.createdAt = createdAt;
     this.banned = banned;
     this.likesCount = likesCount;
     this.reportsCount = reportsCount;
-    this.author = author;
+    this.author = new User(author);
+    this.liked = liked;
   }
 
   get formattedDate() {
-    const currentDate = this.createdAt;
+    const currentDate = new Date(this.createdAt);
     const d = [
       `0${currentDate.getDate()}`,
       `0${currentDate.getMonth() + 1}`,

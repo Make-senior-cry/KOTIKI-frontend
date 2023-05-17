@@ -9,18 +9,20 @@ function Post({ post, onLike, onReport }) {
     return <BannedPost />;
   }
   return (
-    <div className={`${styles.post} card`}>
+    <div className={`${styles.post} card mx-auto`}>
       <div className="card-body">
         <PostTitle
-          avatar={post.author.imageURL}
+          avatar={post.author.imageUrl}
           authorName={post.author.name}
           createdAt={post.formattedDate}
+          authorLink={post.author.link}
         />
         <p className="card-text">{ post.text }</p>
-        <PostImage imageUrl={post.imageURL} />
+        <PostImage imageUrl={post.imageUrl} />
       </div>
       <PostFooter
         likesCount={post.likesCount}
+        liked={post.liked}
         onLike={() => onLike(post.id)}
         onReport={() => onReport(post.id)}
       />

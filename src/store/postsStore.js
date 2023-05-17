@@ -1,5 +1,7 @@
 import { makeAutoObservable, runInAction } from 'mobx';
+import { toast } from 'react-toastify';
 import * as API from '../api';
+import PostRecord from '../entities/postRecord';
 
 export const feedType = {
   FOLLOWING: 'FOLLOWING',
@@ -17,19 +19,21 @@ class PostsStore {
 
   constructor() {
     makeAutoObservable(this);
+    this.likePost = this.likePost.bind(this);
+    this.reportPost = this.reportPost.bind(this);
   }
 
   async fetchFeed(skip, limit) {
     const postsPagination = await API.getFeed(this.type, skip, limit);
     runInAction(() => {
-      this.setDataFromPostPagintaionDTO(postsPagination);
+      this.setDataFromPostPaginationDTO(postsPagination);
     });
   }
 
   async fetchUserPosts(userId, skip, limit) {
     const postsPagination = await API.getPosts(userId, skip, limit);
     runInAction(() => {
-      this.setDataFromPostPagintaionDTO(postsPagination);
+      this.setDataFromPostPaginationDTO(postsPagination);
     });
   }
 
@@ -39,36 +43,36 @@ class PostsStore {
 
   async likePost(postId) {
     try {
-      const likesCount = await API.likePost(postId);
+      const { likesCount, liked } = await API.likePost(postId);
       runInAction(() => {
-        this.updatePostLocallyById(postId, { likesCount });
+        this.updatePostLocallyById(postId, { likesCount, liked });
       });
     } catch (e) {
-      console.error(e);
+      toast.error(e.message);
     }
   }
 
   async reportPost(postId) {
     try {
-      const reportsCount = await API.reportPost(postId);
+      const { reportsCount } = await API.reportPost(postId);
       runInAction(() => {
         this.updatePostLocallyById(postId, { reportsCount });
       });
     } catch (e) {
-      console.error(e);
+      toast.error(e.message);
     }
   }
 
-  async updatePostLocallyById(postId, newFields) {
+  updatePostLocallyById(postId, newFields) {
     this.posts = this.posts.map((post) => {
       if (post.id === postId) {
-        return { ...post, ...newFields };
+        return new PostRecord({ ...post, ...newFields });
       }
       return post;
     });
   }
 
-  setDataFromPostPagintaionDTO(postsPagination) {
+  setDataFromPostPaginationDTO(postsPagination) {
     this.posts = postsPagination.dataList;
     this.hasNextPage = postsPagination.hasNext;
     this.hasPrevPage = postsPagination.hasPrev;
