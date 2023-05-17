@@ -48,9 +48,8 @@ function UserForm({
         onChange={(e) => setDescription(e.target.value)}
         placeholder="Я - Аркадий Паровозов. Я люблю JavaScript"
         className="mb-4"
-        required
       />
-      <Button type="submit">Создать</Button>
+      <Button type="submit">Изменить</Button>
     </form>
   );
 }
