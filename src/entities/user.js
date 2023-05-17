@@ -31,7 +31,7 @@ export default class User {
 export const fakeUser = new User({
   id: 0,
   name: 'Fake',
-  imageURL: 'https://i1.sndcdn.com/avatars-000306703239-2lpxao-t500x500.jpg',
+  imageUrl: 'https://i1.sndcdn.com/avatars-000306703239-2lpxao-t500x500.jpg',
   description: 'A fake user',
   email: 'fake@fake.com',
   role: 'user',
