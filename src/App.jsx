@@ -8,6 +8,7 @@ import SearchPeoplePage from './pages/SearchPeoplePage';
 import ProfilePage from './pages/ProfilePage';
 import Modals from './components/Modals';
 import 'react-toastify/dist/ReactToastify.css';
+import ChatPage from './pages/ChatPage';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         </Route>
         <Route path="/search/user" element={<Protect><SearchPeoplePage /></Protect>} />
         <Route path="/create-post" element={<Protect>Create post page</Protect>} />
+        <Route path="/chat" element={<Protect><ChatPage /></Protect>} />
         {/* Guest pages */}
         <Route
           path="/sign-in"
